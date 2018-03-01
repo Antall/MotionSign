@@ -1,5 +1,5 @@
 #include <Adafruit_WS2801.h>
-#undef DEBUG
+#define DEBUG
 
 #include <OfficeSign.h>
 OfficeSign officeSign;

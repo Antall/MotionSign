@@ -1,16 +1,20 @@
 #include "SolidColor.h"
 
-
 SolidColor::SolidColor(){
-
+  hue = 0x0000;
 }
 
 void SolidColor::run(Sign &sign, SignData &data){
 
-  if(data.isMotion){
-    sign.setHSV(0x1111,0xFF,0xFF);
+  unsigned long currMillis = millis();
+
+  hue += 100;
+
+  if(currMillis - data.lastMotion > TIME_OUT){
+    sign.setHSV(HUE_RED, 0xFF,0xFF);
   }else{
-    sign.setHSV(0x2222,0xFF,0xFF);
+    sign.setHSV(hue, 0xFF,0xFF);
+    //sign.setHSV(HUE_GREEN, 0xFF,0xFF);
   }
 
 }

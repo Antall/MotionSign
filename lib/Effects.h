@@ -1,8 +1,15 @@
 #ifndef EFFECTS_H
 #define EFFECTS_H
 
+#define USE_SOILD_COLOR 0
+#define USE_MOTION_TIME 1
+
 #include "Adafruit_WS2801.h"
-#include "SolidColor.h"
+#if USE_SOILD_COLOR
+  #include "SolidColor.h"
+#elif USE_MOTION_TIME
+  #include "MotionTime.h"
+#endif
 
 #define DATA_PIN 11
 #define CLK_PIN 13
@@ -31,7 +38,11 @@ class Effects{
 
     Effect* effect;
     Effect noEffect;
-    SolidColor solidColor;
+#if USE_SOILD_COLOR
+    SolidColor signEffect;
+#elif USE_MOTION_TIME
+    MotionTime signEffect;
+#endif
 
     void updateStrip();
 };

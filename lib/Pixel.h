@@ -3,13 +3,18 @@
 
 #include "Arduino.h"
 #include "SignData.h"
+#include "ColorHSV.h"
 
 class Pixel{
   public:
     Pixel();
-    uint16_t hue;
-    uint8_t saturation;
-    uint8_t value;
+    ColorHSV hsv;
+    //uint8_t x;
+    //uint8_t y;
+
     uint32_t color();
+    void setFrom(Pixel* pixel);
+    void set(uint16_t h, uint8_t s, uint8_t v);
+
 };
 #endif

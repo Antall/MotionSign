@@ -1,27 +1,37 @@
 #include "Pixel.h"
 
 Pixel::Pixel(){
-  saturation = 0xFF;
-  value = 0xFF;
+  hsv.hue = 0;
+  hsv.sat = 0xFF;
+  hsv.val = 0xFF;
 }
 
 // Input a value 0 to 255 to get a color value.
 // The colors are a transition r - g - b - back to r.
 uint32_t Color(uint8_t r, uint8_t g, uint8_t b) {
-  return ((uint32_t)r << 16) | ((uint32_t)g <<  8) | b;
+  return ((uint32_t)b << 16) | ((uint32_t)g <<  8) | r;
+}
+
+
+void Pixel::setFrom(Pixel* pixel){
+  hsv = pixel->hsv;
+}
+
+void Pixel::set(uint16_t h, uint8_t s, uint8_t v){
+  hsv.hue = h; hsv.sat = s; hsv.val = v;
 }
 
 uint32_t Pixel::color()
 {
     unsigned char region, fpart, p, q, t, r, g, b;
 
-    uint16_t h = hue >> 8,
-             s = saturation,
-             v = value;
+    uint16_t h = hsv.hue >> 8,
+             s = hsv.sat,
+             v = hsv.val;
 
     if(s == 0) {
         /* color is grayscale */
-        r = g = b = value;
+        r = g = b = hsv.val;
         return Color(r, g, b);
     }
 

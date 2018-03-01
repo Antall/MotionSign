@@ -7,14 +7,15 @@ Effects::Effects(){
 
 void Effects::init(){
   sign.init();
-  strip = Adafruit_WS2801(LED_COUNT, DATA_PIN, CLK_PIN);
+  //strip = Adafruit_WS2801(LED_COUNT, DATA_PIN, CLK_PIN);
+  strip = Adafruit_WS2801(LED_COUNT, WS2801_RGB);
   strip.begin();
   strip.show();
 }
 
 void Effects::reset(){
   //effect = &noEffect;
-  effect = &solidColor;
+  effect = &signEffect;
 }
 
 void Effects::run(SignData &data){
