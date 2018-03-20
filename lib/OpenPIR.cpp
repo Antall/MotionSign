@@ -23,7 +23,7 @@ void OpenPIR::run(SignData &data){
 }
 
 void OpenPIR::getAnalog(SignData &data){
-  data.analogPIR = analogRead(PIR_AOUT);
+  data.motion.setAnalog( analogRead(PIR_AOUT) );
 
   //float voltage = (float) data.analogPIR / 1024.0 * 5.0;
   // Print the reading from the digital pin.
@@ -43,9 +43,6 @@ void OpenPIR::getAnalog(SignData &data){
 
 void OpenPIR::getDigital(SignData &data){
   // The OpenPIR's digital output is active high
-  data.isMotion = digitalRead(PIR_DOUT);
+  data.motion.setDigital( digitalRead(PIR_DOUT) );
 
-  if (data.isMotion == HIGH){
-    data.lastMotion = millis();
-  }
 }

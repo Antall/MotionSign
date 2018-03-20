@@ -25,6 +25,7 @@ void Effects::run(SignData &data){
     effect -> run(sign, data);
     this -> updateStrip();
     strip.show();
+    data.motion.resetCurrent();
   }
 }
 

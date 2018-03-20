@@ -25,6 +25,13 @@ void Sign::setColor(ColorHSV color){
   }
 }
 
+void Sign::setColor(ColorHSV color, uint8_t x){
+  for(uint8_t j=0; j<LED_HEIGHT; j++){
+    Pixel* pixel = this->pixel(x,j);
+    pixel->hsv = color;
+  }
+}
+
 void Sign::pushRight(ColorHSV color){
   for(uint8_t j=0; j<LED_HEIGHT; j++){
     for(int8_t i=LED_WIDTH-2; i>=0; i--){

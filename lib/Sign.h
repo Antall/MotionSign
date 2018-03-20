@@ -15,6 +15,7 @@ class Sign{
     Pixel* pixel(uint8_t x, uint8_t y);
     void setHSV(uint16_t h, uint8_t s, uint8_t v);
     void setColor(ColorHSV color);
+    void setColor(ColorHSV color, uint8_t x);
     void pushRight(ColorHSV color);
 
   private:

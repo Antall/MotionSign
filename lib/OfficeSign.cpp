@@ -4,9 +4,6 @@ OfficeSign::OfficeSign(){
 };
 
 void OfficeSign::init(){
-
-  data.isMotion = LOW;
-  //tempo.init();
   openPIR.init();
   effects.init();
 }
