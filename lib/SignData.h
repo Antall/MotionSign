@@ -11,6 +11,7 @@
 const uint8_t UINT8_MAX_2 = UINT8_MAX/2;
 const uint16_t HUE_GREEN = (120*0xFF/360) << 8;
 const uint16_t HUE_RED = (0/360) << 8;
+const uint16_t HUE_BLUE = (240*0xFF/360) << 8;
 
 struct SignData{
   Motion motion;

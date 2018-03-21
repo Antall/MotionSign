@@ -4,15 +4,15 @@ Motion::Motion(){
    _isMotion = false;
    lastTime = 0;
 
-   maxRange.max = 0xFFFF;
-   maxRange.min = 0;
+   maxRange.max = 0;
+   maxRange.min = 0xFFFF;
 
    this->resetCurrent();
 }
 
 void Motion::resetCurrent(){
-   currRange.max = 0xFFFF;
-   currRange.min = 0;
+  currRange.max = 0;
+  currRange.min = 0xFFFF;
 }
 
 uint16_t Motion::currAvg(){

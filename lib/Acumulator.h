@@ -14,6 +14,7 @@ class Acumulator : public Effect {
     void pushMotion(Sign &sign, SignData &data);
 
     int8_t pts[LED_WIDTH];
+    int8_t bluePt;
     uint8_t nextPt;
 
     unsigned long lastStep;
