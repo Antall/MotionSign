@@ -14,6 +14,7 @@ class Motion{
     unsigned long lastMotion();
     uint16_t currAvg();
     uint8_t avgMap(uint8_t low, uint8_t high);
+    uint16_t avgMapU16(uint16_t low, uint16_t high);
 
   private:
     void setRangeWithValue(RangeU16 &range, uint16_t value);

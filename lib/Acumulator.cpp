@@ -1,6 +1,6 @@
 #include "Acumulator.h"
 
-const uint16_t TIME_OUT = 3*60;
+const unsigned long TIME_OUT = (long)3*60*1000;
 
 Acumulator::Acumulator(){
   lastStep = 0;
@@ -9,6 +9,7 @@ Acumulator::Acumulator(){
 
 void Acumulator::resetPts(){
   nextPt = 0;
+  lastPixel = millis();
   for(uint8_t i=0; i<LED_WIDTH; i++){
     pts[i] = -2;
   }
@@ -17,7 +18,7 @@ void Acumulator::resetPts(){
 void Acumulator::run(Sign &sign, SignData &data){
   unsigned long currMillis = millis();
 
-  const unsigned long STEP_TIME = 50;
+  const unsigned long STEP_TIME = 60;
 
   if(currMillis - lastStep < STEP_TIME){ return; }
   lastStep = currMillis;
@@ -26,17 +27,19 @@ void Acumulator::run(Sign &sign, SignData &data){
 
   uint16_t pixelStep = TIME_OUT / LED_WIDTH;
 
-  if(currMillis - data.motion.lastMotion() < pixelStep){
+  if( data.motion.isMotion() ){
     this->resetPts();
   }else if( currMillis - lastPixel > pixelStep ){
+    lastPixel = currMillis;
     pts[nextPt] = -1;
+    nextPt++;
   }
   this->pushMotion(sign, data);
 
   //Calculate point locations
   for(uint8_t i=0; i<LED_WIDTH; i++){
     if(pts[i] <= -2){ continue; }
-    if(pts[i] < i ){ pts[i]++; }
+    if(pts[i] < LED_WIDTH-1-i ){ pts[i]++; }
   }
 
   //Color Green
@@ -46,12 +49,12 @@ void Acumulator::run(Sign &sign, SignData &data){
       sign.setColor(green, pts[i]);
     }
   }
-
 }
 
 void Acumulator::pushMotion(Sign &sign, SignData &data){
     uint8_t value = data.motion.avgMap(10, 0xFF);
-    ColorHSV color = ColorHSV(HUE_RED, 0xFF, value);
+    uint16_t hue = data.motion.avgMapU16(0,0xFFFF) - 0x6D00;
+    ColorHSV color = ColorHSV(hue, 0xFF, 0xFF);
     sign.pushRight(color);
 }
 
