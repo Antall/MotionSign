@@ -1,8 +1,8 @@
 #include <Adafruit_WS2801.h>
 #define DEBUG
 
-#include <OfficeSign.h>
-OfficeSign officeSign;
+#include <MotionSign328.h>
+MotionSign328 motionSign;
 
 void setup(){
 
@@ -10,9 +10,9 @@ void setup(){
   Serial.begin(115200);
   #endif
 
-  officeSign.init();
+  motionSign.init();
 }
 
 void loop(){
-  officeSign.run();
+  motionSign.run();
 }

@@ -1,13 +1,13 @@
-#ifndef OFFICE_SIGN_H
-#define OFFICE_SIGN_H
+#ifndef MOTION_SIGN_H
+#define MOTION_SIGN_H
 
 #include "OpenPIR.h"
 #include "SignData.h"
 #include "Effects.h"
 
-class OfficeSign{
+class MotionSign328{
   public:
-    OfficeSign();
+    MotionSign328();
     void init();
     void run();
 

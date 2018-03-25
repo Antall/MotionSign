@@ -1,14 +1,14 @@
-#include "OfficeSign.h"
+#include "MotionSign328.h"
 
-OfficeSign::OfficeSign(){
+MotionSign328::MotionSign328(){
 };
 
-void OfficeSign::init(){
+void MotionSign328::init(){
   openPIR.init();
   effects.init();
 }
 
-void OfficeSign::run(){
+void MotionSign328::run(){
 
   openPIR.run(data);
   effects.run(data);
