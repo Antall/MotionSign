@@ -13,6 +13,8 @@ ln -sf $(pwd)/MotionSign/lib/MotionSignESP12/MotionSignESP12.ino $(pwd)/MotionSi
 
 cd ~/Documents/Arduino/libraries
 git clone git@github.com:adafruit/Adafruit-WS2801-Library.git Adafruit_WS2801
+
+# Eagle
 cd ~/Documents
-ln -sf $(pwd)/Arduino/MotionSign/eagle $(pwd)/eagle/OfficeSign
+ln -sf $(pwd)/Arduino/MotionSign/eagle $(pwd)/eagle/MotionSign
 echo "Finished"

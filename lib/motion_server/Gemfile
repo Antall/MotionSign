@@ -1,0 +1,16 @@
+# frozen_string_literal: true
+
+source "https://rubygems.org"
+ruby '2.5.0'
+
+git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
+
+gem 'thin'
+gem 'sinatra', '~>2.0'
+gem 'sinatra-reloader', '~>1.0'
+
+group :development, :test do
+  gem 'pry-byebug', '~>3.0'
+  gem 'pry-stack_explorer', '~> 0.4.9'
+end
+

@@ -12,12 +12,14 @@ class Acumulator : public Effect {
   private:
     void resetPts();
     void pushMotion(Sign &sign, SignData &data);
+    void checkNudge(SignData &data, unsigned long millis);
 
     int8_t pts[LED_WIDTH];
     uint8_t nextPt;
 
     unsigned long lastStep;
     unsigned long lastPixel;
+    unsigned long lastNudge;
 };
 
 #endif

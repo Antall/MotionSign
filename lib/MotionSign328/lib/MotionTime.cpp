@@ -1,7 +1,5 @@
 #include "MotionTime.h"
 
-const uint16_t TIME_OUT = 3*60*1000;
-
 MotionTime::MotionTime(){
   lastStep = 0;
 }

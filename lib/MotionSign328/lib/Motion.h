@@ -9,8 +9,10 @@ class Motion{
     void setAnalog(uint16_t newValue);
     void setDigital(bool newValue);
     void resetCurrent();
+    void nudgeMax();
 
     bool isMotion();
+    bool isTimeOut();
     unsigned long lastMotion();
     uint16_t currAvg();
     uint8_t avgMap(uint8_t low, uint8_t high);

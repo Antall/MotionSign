@@ -4,6 +4,7 @@
 #include "OpenPIR.h"
 #include "SignData.h"
 #include "Effects.h"
+#include "Internet.h"
 
 class MotionSign328{
   public:
@@ -15,6 +16,7 @@ class MotionSign328{
     OpenPIR openPIR;
     Effects effects;
     SignData data;
+    Internet internet;
 };
 
 #endif

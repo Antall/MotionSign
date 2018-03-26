@@ -1,8 +1,6 @@
-#include <Adafruit_WS2801.h>
 #define DEBUG
-
-#include <MotionSign388.h>
-MotionSign328 motionSign;
+#include <MotionSignESP12.h>
+MotionSignESP12 motionSign;
 
 void setup(){
 

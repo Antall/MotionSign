@@ -1,7 +1,5 @@
 #include "SolidColor.h"
 
-const uint16_t TIME_OUT = 60*3;
-
 SolidColor::SolidColor(){
   hue = 0x0000;
 }

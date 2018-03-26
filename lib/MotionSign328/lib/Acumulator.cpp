@@ -1,9 +1,8 @@
 #include "Acumulator.h"
 
-const unsigned long TIME_OUT = (long)3*60*1000;
-
 Acumulator::Acumulator(){
   lastStep = 0;
+  lastNudge = 0;
   this->resetPts();
 }
 
@@ -15,15 +14,20 @@ void Acumulator::resetPts(){
   }
 }
 
+void Acumulator::checkNudge(SignData &data, unsigned long currMillis){
+  if(currMillis - lastNudge < 200){ return; }
+  lastNudge = currMillis;
+  data.motion.nudgeMax();
+}
+
 void Acumulator::run(Sign &sign, SignData &data){
   unsigned long currMillis = millis();
+  this->checkNudge(data, currMillis);
 
   const unsigned long STEP_TIME = 60;
 
   if(currMillis - lastStep < STEP_TIME){ return; }
   lastStep = currMillis;
-
-  ColorHSV color;
 
   uint16_t pixelStep = TIME_OUT / LED_WIDTH;
 
@@ -43,10 +47,11 @@ void Acumulator::run(Sign &sign, SignData &data){
   }
 
   //Color Green
-  ColorHSV green = ColorHSV(HUE_GREEN, 0xFF, 0xFF);
+  uint16_t hue = data.isReserved ? HUE_BLUE : HUE_GREEN;
+  ColorHSV color = ColorHSV(hue, 0xFF, 0xFF);
   for(uint8_t i=0; i<LED_WIDTH; i++){
     if(pts[i] >= 0){
-      sign.setColor(green, pts[i]);
+      sign.setColor(color, pts[i]);
     }
   }
 }
