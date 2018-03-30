@@ -1,12 +1,12 @@
 #ifndef INTERNET_H
 #define INTERNET_H
 
-#include "SignData.h"
+#include "Data.h"
 
 class Internet {
   public:
     void init();
-    void run(SignData &data);
+    void run(Data &data);
 
   private:
     unsigned long lastRun;

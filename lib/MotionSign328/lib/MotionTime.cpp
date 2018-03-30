@@ -4,7 +4,7 @@ MotionTime::MotionTime(){
   lastStep = 0;
 }
 
-void MotionTime::run(Sign &sign, SignData &data){
+void MotionTime::run(Sign &sign, Data &data){
 
   unsigned long currMillis = millis();
 

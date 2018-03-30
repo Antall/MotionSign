@@ -1,5 +1,5 @@
 #include "Motion.h"
-#include "SignData.h"
+#include "Data.h"
 
 Motion::Motion(){
    _isMotion = false;

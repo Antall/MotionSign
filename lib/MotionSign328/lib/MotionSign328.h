@@ -2,7 +2,7 @@
 #define MOTION_SIGN_H
 
 #include "OpenPIR.h"
-#include "SignData.h"
+#include "Data.h"
 #include "Effects.h"
 #include "Internet.h"
 
@@ -15,7 +15,7 @@ class MotionSign328{
   private:
     OpenPIR openPIR;
     Effects effects;
-    SignData data;
+    Data data;
     Internet internet;
 };
 

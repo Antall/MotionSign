@@ -3,7 +3,7 @@
 Effect::Effect(){
 }
 
-void Effect::run(Sign &sign, SignData &data){
+void Effect::run(Sign &sign, Data &data){
 }
 
 

@@ -7,7 +7,7 @@
 class SolidColor : public Effect {
   public:
     SolidColor();
-    void run(Sign &sign, SignData &data);
+    void run(Sign &sign, Data &data);
   
   private:
     uint16_t hue;

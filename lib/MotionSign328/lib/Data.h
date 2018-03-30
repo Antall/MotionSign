@@ -1,5 +1,5 @@
-#ifndef SIGN_DATA_H
-#define SIGN_DATA_H
+#ifndef DATA_H
+#define DATA_H
 
 #define UINT8_MAX 0xFF
 #define UINT16_MAX 0xFFFF
@@ -16,8 +16,9 @@ const uint16_t HUE_BLUE = ((uint32_t)240*0xFF/360) << 8;
 
 const unsigned long TIME_OUT = (unsigned long)60/2*1000;
 
-struct SignData{
+struct Data{
   Motion motion;
+  uint16_t potValue;
   bool isReserved;
 };
 #endif

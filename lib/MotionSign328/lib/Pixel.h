@@ -2,7 +2,7 @@
 #define PIXEL_H
 
 #include "Arduino.h"
-#include "SignData.h"
+#include "Data.h"
 #include "ColorHSV.h"
 
 class Pixel{

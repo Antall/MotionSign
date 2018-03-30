@@ -2,11 +2,11 @@
 #define EFFECT_H
 
 #include "Sign.h"
-#include "SignData.h"
+#include "Data.h"
 
 class Effect{
   public:
     Effect();
-    virtual void run(Sign &sign, SignData &data);
+    virtual void run(Sign &sign, Data &data);
 };
 #endif

@@ -7,7 +7,7 @@
 class MotionTime : public Effect {
   public:
     MotionTime();
-    void run(Sign &sigh, SignData &data);
+    void run(Sign &sigh, Data &data);
 
   private:
     unsigned long lastStep;

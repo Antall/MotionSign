@@ -29,7 +29,7 @@ class Effects{
   public:
     Effects();
     void init();
-    void run(SignData &data);
+    void run(Data &data);
     void reset();
 
   private:

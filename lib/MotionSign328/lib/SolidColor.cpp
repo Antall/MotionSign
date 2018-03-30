@@ -4,7 +4,7 @@ SolidColor::SolidColor(){
   hue = 0x0000;
 }
 
-void SolidColor::run(Sign &sign, SignData &data){
+void SolidColor::run(Sign &sign, Data &data){
 
   unsigned long currMillis = millis();
 

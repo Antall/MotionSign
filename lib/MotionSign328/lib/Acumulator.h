@@ -7,12 +7,12 @@
 class Acumulator : public Effect {
   public:
     Acumulator();
-    void run(Sign &sigh, SignData &data);
+    void run(Sign &sigh, Data &data);
 
   private:
     void resetPts();
-    void pushMotion(Sign &sign, SignData &data);
-    void checkNudge(SignData &data, unsigned long millis);
+    void pushMotion(Sign &sign, Data &data);
+    void checkNudge(Data &data, unsigned long millis);
 
     int8_t pts[LED_WIDTH];
     uint8_t nextPt;

@@ -17,12 +17,12 @@ void OpenPIR::init(){
 
 }
 
-void OpenPIR::run(SignData &data){
+void OpenPIR::run(Data &data){
   this->getDigital(data);
   this->getAnalog(data);
 }
 
-void OpenPIR::getAnalog(SignData &data){
+void OpenPIR::getAnalog(Data &data){
   data.motion.setAnalog( analogRead(PIR_AOUT) );
 
   //float voltage = (float) data.analogPIR / 1024.0 * 5.0;
@@ -41,7 +41,7 @@ void OpenPIR::getAnalog(SignData &data){
 
 }
 
-void OpenPIR::getDigital(SignData &data){
+void OpenPIR::getDigital(Data &data){
   // The OpenPIR's digital output is active high
   data.motion.setDigital( digitalRead(PIR_DOUT) );
 

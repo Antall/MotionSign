@@ -14,13 +14,13 @@ void Acumulator::resetPts(){
   }
 }
 
-void Acumulator::checkNudge(SignData &data, unsigned long currMillis){
+void Acumulator::checkNudge(Data &data, unsigned long currMillis){
   if(currMillis - lastNudge < 200){ return; }
   lastNudge = currMillis;
   data.motion.nudgeMax();
 }
 
-void Acumulator::run(Sign &sign, SignData &data){
+void Acumulator::run(Sign &sign, Data &data){
   unsigned long currMillis = millis();
   this->checkNudge(data, currMillis);
 
@@ -56,7 +56,7 @@ void Acumulator::run(Sign &sign, SignData &data){
   }
 }
 
-void Acumulator::pushMotion(Sign &sign, SignData &data){
+void Acumulator::pushMotion(Sign &sign, Data &data){
     uint8_t value = data.motion.avgMap(10, 0xFF);
     uint16_t hue = data.motion.avgMapU16(0,0xFFFF) - 0x6D00;
     ColorHSV color = ColorHSV(hue, 0xFF, 0xFF);

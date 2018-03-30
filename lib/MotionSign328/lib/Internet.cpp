@@ -10,7 +10,7 @@ void Internet::init(){
   pinMode(OCCUPIED_PIN, OUTPUT );
   pinMode(RESERVED_PIN, INPUT );
 }
-void Internet::run(SignData &data){
+void Internet::run(Data &data){
   unsigned long currMillis = millis();
   if(currMillis - lastRun < UPDATE_TIME){ return; }
   lastRun = currMillis;

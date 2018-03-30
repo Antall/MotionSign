@@ -18,7 +18,7 @@ void Effects::reset(){
   effect = &signEffect;
 }
 
-void Effects::run(SignData &data){
+void Effects::run(Data &data){
   unsigned long currMillis = millis();
   if(currMillis - lastRun > UPDATE_DURRATION){
     lastRun = currMillis;
