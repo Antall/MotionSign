@@ -4,7 +4,7 @@
 #include "Data.h"
 
 class Pot {
-  private:
+  public:
     void init();
     void run(Data &data);
 };

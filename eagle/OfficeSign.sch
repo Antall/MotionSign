@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="8.7.0">
+<eagle version="8.7.1">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -20106,11 +20106,16 @@ Mode Select</text>
 <label x="233.68" y="114.3" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
-<net name="A1" class="0">
+<net name="POT" class="0">
 <segment>
 <wire x1="231.14" y1="160.02" x2="233.68" y2="160.02" width="0.1524" layer="91"/>
 <pinref part="U1" gate="G$1" pin="PC1(ADC1)"/>
 <label x="233.68" y="160.02" size="1.27" layer="95" xref="yes"/>
+</segment>
+<segment>
+<pinref part="POT" gate="G$1" pin="3"/>
+<wire x1="25.4" y1="254" x2="27.94" y2="254" width="0.1524" layer="91"/>
+<label x="27.94" y="254" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="D4" class="0">
@@ -20649,12 +20654,6 @@ Mode Select</text>
 <pinref part="R21" gate="G$1" pin="1"/>
 <junction x="147.32" y="274.32"/>
 <wire x1="132.08" y1="274.32" x2="139.7" y2="274.32" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$24" class="0">
-<segment>
-<pinref part="POT" gate="G$1" pin="3"/>
-<wire x1="25.4" y1="254" x2="27.94" y2="254" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$25" class="0">
