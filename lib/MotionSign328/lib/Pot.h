@@ -10,8 +10,8 @@ class Pot {
     void run(Data &data);
 
   private:
+    unsigned long lastRun;
     Adafruit_NeoPixel strip;
-
 };
 
 #endif

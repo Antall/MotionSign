@@ -10,6 +10,7 @@ const int ROOM_NUMBER = 2;
 
 void Internet::init(){
   lastRun = 0;
+  currRequest = 0;
 
   // We start by connecting to a WiFi network
 #ifdef DEBUG_PRINT
@@ -53,8 +54,41 @@ void Internet::run(Data &data){
     return;
   }
 
-  this->getReserved(data, client);
-  this->postOccupied(data, client);
+  switch(currRequest){
+    case GET_RESERVED: this->getReserved(data, client); break;
+    case POST_OCCUPIED: this->postOccupied(data, client); break;
+    case GET_DISPLAY: this->getDisplay(data,client); break;
+  }
+  currRequest = (currRequest+1) % REQUEST_COUNT;
+
+}
+
+void Internet::getDisplay(Data &data, WiFiClient &client){
+  String url = "/display/" + String(ROOM_NUMBER);
+
+  // This will send the request to the server
+  client.print(String("GET ") + url +
+      " HTTP/1.1\r\n" + "Host: " +
+      HOST + "\r\n" +
+      "Connection: close\r\n\r\n"
+      );
+  delay(200);
+
+  // Read all the lines of the reply until we get to "DATA"
+  String line;
+  while(client.available()){
+    line = client.readStringUntil('\r');
+    if(line == "DATA"){
+      break;
+    }
+  }
+
+  // Then send everything to data
+  data.wipeScreen();
+  while(client.available()){
+    data.storeChar(client.read());
+  }
+
 }
 
 void Internet::getReserved(Data &data, WiFiClient &client){
@@ -72,7 +106,11 @@ void Internet::getReserved(Data &data, WiFiClient &client){
 #endif
 
   // This will send the request to the server
-  client.print(String("GET ") + url + " HTTP/1.1\r\n" + "Host: " + HOST + "\r\n\r\n");
+  client.print(String("GET ") + url +
+      " HTTP/1.1\r\n" + "Host: " +
+      HOST + "\r\n" +
+      "Connection: close\r\n\r\n"
+      );
   delay(200);
 
   // Read all the lines of the reply from server and print them to Serial
@@ -94,10 +132,11 @@ void Internet::postOccupied(Data &data, WiFiClient &client){
 
   String url = "/occupied/" + String(ROOM_NUMBER);
 
-  client.print(String("GET ") + url + " HTTP/1.1\r\n" + "Host: " + HOST + "\r\n" +
+  client.print(String("POST ") + url + " HTTP/1.1\r\n" + "Host: " + HOST + "\r\n" +
       "Cache-Control: no-cache\r\n" +
       "Content-Type: application/json\r\n" +
-      "Content-Length: " + post.length() + "\r\n" + "Connection: close\r\n\r\n"
+      "Content-Length: " + post.length() + "\r\n" +
+      "Connection: close\r\n\r\n"
       );
   client.println(post);
 

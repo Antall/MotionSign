@@ -1,3 +1,5 @@
+#include <LiquidCrystal.h>
+
 #define DEBUG
 #include <MotionSignESP12.h>
 MotionSignESP12 motionSign;

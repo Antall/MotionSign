@@ -4,7 +4,7 @@
 
 
 #define PIR_AOUT A0  // PIR analog output on A0
-#define PIR_DOUT 3   // PIR digital output on D2
+#define PIR_DOUT 8   // PIR digital output on D2
 
 #define PRINT_TIME 100 // Rate of serial printouts
 

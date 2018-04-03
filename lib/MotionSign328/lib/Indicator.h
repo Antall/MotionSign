@@ -15,6 +15,7 @@ class Indicator {
     unsigned long lastStrobe;
     unsigned long lastRun;
     uint16_t hue;
+    uint8_t value;
     bool isOn;
 
     void update(Data &data);
