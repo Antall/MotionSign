@@ -20137,7 +20137,7 @@ Mode Select</text>
 <label x="119.38" y="210.82" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
-<net name="D2" class="0">
+<net name="POD_IND" class="0">
 <segment>
 <wire x1="231.14" y1="134.62" x2="233.68" y2="134.62" width="0.1524" layer="91"/>
 <pinref part="U1" gate="G$1" pin="PD2(INT0)"/>
@@ -20656,10 +20656,11 @@ Mode Select</text>
 <wire x1="132.08" y1="274.32" x2="139.7" y2="274.32" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$25" class="0">
+<net name="POT_IND" class="0">
 <segment>
 <pinref part="POT" gate="G$1" pin="2"/>
 <wire x1="27.94" y1="251.46" x2="25.4" y2="251.46" width="0.1524" layer="91"/>
+<label x="27.94" y="251.46" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="N$26" class="0">
