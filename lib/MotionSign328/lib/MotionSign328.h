@@ -5,6 +5,8 @@
 #include "Data.h"
 #include "Effects.h"
 #include "Internet.h"
+#include "Pot.h"
+#include "Indicator.h"
 
 class MotionSign328{
   public:
@@ -17,6 +19,8 @@ class MotionSign328{
     Effects effects;
     Data data;
     Internet internet;
+    Pot pot;
+    Indicator indicator;
 };
 
 #endif

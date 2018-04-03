@@ -48,8 +48,7 @@ class Effects{
 #elif USE_ACUMULATOR
     Acumulator signEffect;
 #endif
-
-    void updateStrip();
+    void updateStrip(Data &data);
 };
 #endif
 
