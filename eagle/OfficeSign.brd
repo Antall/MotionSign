@@ -9114,7 +9114,7 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 <attribute name="NAME" x="95.504" y="22.968" size="0.508" layer="25" rot="R90"/>
 <attribute name="VALUE" x="88.646" y="16.618" size="0.508" layer="27" rot="R90"/>
 </element>
-<element name="R15" library="adafruit" package="M0805" value="3.3" x="90.17" y="10.16" smashed="yes">
+<element name="R15" library="adafruit" package="M0805" value="22" x="90.17" y="10.16" smashed="yes">
 <attribute name="NAME" x="88.392" y="9.652" size="0.508" layer="25" rot="R90"/>
 <attribute name="VALUE" x="92.456" y="9.652" size="0.508" layer="27" rot="R90"/>
 </element>

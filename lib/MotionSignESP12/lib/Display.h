@@ -17,8 +17,8 @@ class Display {
     void init();
     void run(Data &data);
 
-  private:
-    LiquidCrystal lcd;
+  //private:
+    //LiquidCrystal lcd;
 };
 
 #endif

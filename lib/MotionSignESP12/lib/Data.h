@@ -9,6 +9,7 @@
 #define SCREEN_HEIGHT 4
 
 class Data{
+
   public:
     Data();
     bool isOccupied;
@@ -16,6 +17,7 @@ class Data{
     char screen[SCREEN_HEIGHT][SCREEN_WIDTH];
     void wipeScreen();
     void storeChar(char incomingByte);
+    bool didUpdateScreen;
 
   private:
     uint8_t cursorX;
@@ -23,7 +25,7 @@ class Data{
     void shiftUp();
     void checkCursor();
 
-    
+
 };
 
 #endif

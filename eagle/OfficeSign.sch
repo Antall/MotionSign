@@ -22309,7 +22309,7 @@ Source: www.kingbright.com</description>
 <part name="GND21" library="supply1" deviceset="GND" device=""/>
 <part name="SUPPLY11" library="SparkFun-Aesthetics" deviceset="VCC" device=""/>
 <part name="U7" library="bg_eagle_lib" deviceset="NJVMJD2955T4G" device=""/>
-<part name="R15" library="adafruit" deviceset="R-US_" device="M0805" value="3.3"/>
+<part name="R15" library="adafruit" deviceset="R-US_" device="M0805" value="22"/>
 <part name="GND22" library="SparkFun" deviceset="GND" device=""/>
 <part name="S3" library="SparkFun-Switches" deviceset="MOMENTARY-SWITCH-SPST" device="-SMD-5.2-REDUNDANT" value="Reset"/>
 <part name="S4" library="SparkFun-Switches" deviceset="MOMENTARY-SWITCH-SPST" device="-SMD-5.2-REDUNDANT" value="GPIO0"/>

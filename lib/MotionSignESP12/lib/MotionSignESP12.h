@@ -4,6 +4,7 @@
 #include "Data.h"
 #include "SignChip.h"
 #include "Internet.h"
+#include "Display.h"
 
 class MotionSignESP12{
   public:
@@ -15,6 +16,7 @@ class MotionSignESP12{
     SignChip signChip;
     Data data;
     Internet internet;
+    Display display;
 };
 
 #endif

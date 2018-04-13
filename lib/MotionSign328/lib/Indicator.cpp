@@ -32,7 +32,6 @@ void Indicator::run(Data &data){
 }
 
 void Indicator::update(Data &data){
-  Serial.println("HERE");
   unsigned long currMillis = millis();
   if(currMillis - lastRun < UPDATE_DURRATION){ return; }
   lastRun = currMillis;

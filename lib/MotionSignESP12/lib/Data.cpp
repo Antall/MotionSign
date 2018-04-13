@@ -4,6 +4,7 @@ Data::Data(){
 
   isOccupied = false;
   isReserved = false;
+  didUpdateScreen = false;
   this->wipeScreen();
 }
 
@@ -18,6 +19,8 @@ void Data::wipeScreen(){
 }
 
 void Data::storeChar(char incomingByte){
+  this->checkCursor();
+  didUpdateScreen = true;
 
   if(incomingByte == '\r'){
     cursorY++;
@@ -44,7 +47,7 @@ void Data::checkCursor(){
 }
 
 void Data::shiftUp(){
-  for(uint8_t i=0; i< SCREEN_HEIGHT - 1; i++){
+  for(uint8_t i=0; i < (SCREEN_HEIGHT - 1); i++){
     for(uint8_t j=0; j < SCREEN_WIDTH; j++){
       screen[i][j] = screen[i+1][j];
     }
