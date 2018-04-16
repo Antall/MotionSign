@@ -21,12 +21,12 @@ get '/display/:room' do
 #--------1---------2---------3---------4
 rtn = <<-RESPONSE
 DATA
-Sing us a song, you're the piano man
-Sing us a song tonight
-Well, we're all in the mood for a melody
-And you've got us feelin' alright
+NOW: #{Time.now.strftime("%^a %l:%M:%S %p")}
+12345678901234567890
+NEXT:       #{Time.now.strftime("%l:%M %p")}
+Ben's & Antall's su
 RESPONSE
-rtn
+rtn.strip
 end
 
 post '/occupied/:room' do

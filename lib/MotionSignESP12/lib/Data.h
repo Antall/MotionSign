@@ -3,7 +3,7 @@
 
 #include "Arduino.h"
 
-#define DEBUG_PRINT
+//#define DEBUG_PRINT
 
 #define SCREEN_WIDTH 20
 #define SCREEN_HEIGHT 4
@@ -24,8 +24,6 @@ class Data{
     uint8_t cursorY;
     void shiftUp();
     void checkCursor();
-
-
 };
 
 #endif

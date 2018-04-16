@@ -75,24 +75,19 @@ void Internet::getDisplay(Data &data, WiFiClient &client){
   delay(200);
 
   // Read all the lines of the reply until we get to "DATA"
-  /*
   String line;
   while(client.available()){
-    line = client.readStringUntil('\r');
-    Serial.println(line);
+    line = client.readStringUntil('\n');
     line.trim();
     if(line == String("DATA")){
-      Serial.println("BREAK");
       break;
     }
   }
-  */
 
   // Then send everything to data
   data.wipeScreen();
   while(client.available()){
     char incomingByte = client.read();
-    Serial.write(incomingByte);
     data.storeChar(incomingByte);
   }
 
@@ -152,7 +147,6 @@ void Internet::postOccupied(Data &data, WiFiClient &client){
   String line;
   while(client.available()){
     line = client.readStringUntil('\r');
-    Serial.println(line);
   }
 
 

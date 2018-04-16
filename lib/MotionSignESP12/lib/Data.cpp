@@ -19,18 +19,17 @@ void Data::wipeScreen(){
 }
 
 void Data::storeChar(char incomingByte){
-  this->checkCursor();
   didUpdateScreen = true;
 
-  if(incomingByte == '\r'){
+  if(incomingByte == 13 || incomingByte == '\n'){
     cursorY++;
-  }else if(incomingByte == 13 || incomingByte == '\n'){
     cursorX = 0;
-  }else{
-    screen[cursorY][cursorX] = incomingByte;
-    cursorX++;
+    return;
   }
+
   this->checkCursor();
+  screen[cursorY][cursorX] = incomingByte;
+  cursorX++;
 }
 
 void Data::checkCursor(){
@@ -43,7 +42,6 @@ void Data::checkCursor(){
     this->shiftUp();
     cursorY = SCREEN_HEIGHT-1;
   }
-
 }
 
 void Data::shiftUp(){
