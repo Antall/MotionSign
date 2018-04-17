@@ -6,10 +6,10 @@
 
 #define LCD_RS 15
 #define LCD_ENABLE 2
-#define LCD_D4 16
-#define LCD_D5 14
-#define LCD_D6 12
-#define LCD_D7 13
+#define LCD_D4 13
+#define LCD_D5 12
+#define LCD_D6 14
+#define LCD_D7 16
 
 class Display {
 
