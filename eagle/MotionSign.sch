@@ -25645,6 +25645,41 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <hole x="37.6" y="-15.5" drill="3.2"/>
 <hole x="37.6" y="15.5" drill="3.2"/>
 </package>
+<package name="LCD-20X4-1HOLE_NOSILK">
+<wire x1="0" y1="0" x2="0" y2="60" width="0.127" layer="51"/>
+<wire x1="0" y1="60" x2="98" y2="60" width="0.127" layer="51"/>
+<wire x1="98" y1="60" x2="98" y2="0" width="0.127" layer="51"/>
+<wire x1="98" y1="0" x2="0" y2="0" width="0.127" layer="51"/>
+<wire x1="1.8" y1="11.3" x2="1.8" y2="48.7" width="0.127" layer="51"/>
+<wire x1="1.8" y1="48.7" x2="96.2" y2="48.7" width="0.127" layer="51"/>
+<wire x1="96.2" y1="48.7" x2="96.2" y2="11.3" width="0.127" layer="51"/>
+<wire x1="96.2" y1="11.3" x2="1.8" y2="11.3" width="0.127" layer="51"/>
+<pad name="P$1" x="10" y="57.5" drill="1.016" shape="square"/>
+<pad name="P$2" x="12.54" y="57.5" drill="1.016"/>
+<pad name="P$3" x="15.08" y="57.5" drill="1.016"/>
+<pad name="P$4" x="17.62" y="57.5" drill="1.016"/>
+<pad name="P$5" x="20.16" y="57.5" drill="1.016"/>
+<pad name="P$6" x="22.7" y="57.5" drill="1.016"/>
+<pad name="P$7" x="25.24" y="57.5" drill="1.016"/>
+<pad name="P$8" x="27.78" y="57.5" drill="1.016"/>
+<pad name="P$9" x="30.32" y="57.5" drill="1.016"/>
+<pad name="P$10" x="32.86" y="57.5" drill="1.016"/>
+<pad name="P$11" x="35.4" y="57.5" drill="1.016"/>
+<pad name="P$12" x="37.94" y="57.5" drill="1.016"/>
+<pad name="P$13" x="40.48" y="57.5" drill="1.016"/>
+<pad name="P$14" x="43.02" y="57.5" drill="1.016"/>
+<pad name="P$15" x="45.56" y="57.5" drill="1.016"/>
+<pad name="P$16" x="48.1" y="57.5" drill="1.016"/>
+<rectangle x1="3" y1="11" x2="6" y2="14" layer="40"/>
+<rectangle x1="3" y1="46" x2="6" y2="49" layer="40"/>
+<rectangle x1="31" y1="46" x2="34" y2="49" layer="40"/>
+<rectangle x1="64" y1="46" x2="67" y2="49" layer="40"/>
+<rectangle x1="92" y1="46" x2="95" y2="49" layer="40"/>
+<rectangle x1="31" y1="11" x2="34" y2="14" layer="40"/>
+<rectangle x1="64" y1="11" x2="67" y2="14" layer="40"/>
+<rectangle x1="92" y1="11" x2="95" y2="14" layer="40"/>
+<hole x="2.5" y="57.5" drill="3.2"/>
+</package>
 </packages>
 <symbols>
 <symbol name="LCD-HD44780">
@@ -25792,6 +25827,29 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 </connects>
 <technologies>
 <technology name="16X2-4-HOLES-BL"/>
+</technologies>
+</device>
+<device name="" package="LCD-20X4-1HOLE_NOSILK">
+<connects>
+<connect gate="G$1" pin="A" pad="P$15"/>
+<connect gate="G$1" pin="DB0" pad="P$7"/>
+<connect gate="G$1" pin="DB1" pad="P$8"/>
+<connect gate="G$1" pin="DB2" pad="P$9"/>
+<connect gate="G$1" pin="DB3" pad="P$10"/>
+<connect gate="G$1" pin="DB4" pad="P$11"/>
+<connect gate="G$1" pin="DB5" pad="P$12"/>
+<connect gate="G$1" pin="DB6" pad="P$13"/>
+<connect gate="G$1" pin="DB7" pad="P$14"/>
+<connect gate="G$1" pin="E" pad="P$6"/>
+<connect gate="G$1" pin="K" pad="P$16"/>
+<connect gate="G$1" pin="R/W" pad="P$5"/>
+<connect gate="G$1" pin="RS" pad="P$4"/>
+<connect gate="G$1" pin="VDD" pad="P$2"/>
+<connect gate="G$1" pin="VO" pad="P$3"/>
+<connect gate="G$1" pin="VSS" pad="P$1"/>
+</connects>
+<technologies>
+<technology name=""/>
 </technologies>
 </device>
 </devices>
@@ -27067,7 +27125,7 @@ part number 2062-2P from STA</description>
 <variantdefs>
 </variantdefs>
 <classes>
-<class number="0" name="default" width="0.254" drill="0.381">
+<class number="0" name="default" width="0.254" drill="0.254">
 <clearance class="0" value="0.254"/>
 </class>
 <class number="1" name="vcc" width="0.508" drill="0.381">
@@ -27209,7 +27267,7 @@ part number 2062-2P from STA</description>
 <part name="GND22" library="SparkFun" deviceset="GND" device=""/>
 <part name="S3" library="SparkFun-Switches" deviceset="MOMENTARY-SWITCH-SPST" device="-SMD-5.2-REDUNDANT" value="Reset"/>
 <part name="S4" library="SparkFun-Switches" deviceset="MOMENTARY-SWITCH-SPST" device="-SMD-5.2-REDUNDANT" value="GPIO0"/>
-<part name="U9" library="HD44780LCD" deviceset="LCD-HD44780" device="20X4-4HOLES" technology="4-HOLES" value="LCD-HD4478020X4-4HOLES"/>
+<part name="U9" library="HD44780LCD" deviceset="LCD-HD44780" device="" value="LCD-HD4478020X4-4HOLES"/>
 <part name="GND23" library="supply1" deviceset="GND" device=""/>
 <part name="VCC" library="SparkFun-Aesthetics" deviceset="VCC" device="" value="VCC"/>
 <part name="CTRST" library="resistor" deviceset="R-TRIMM" device="3296W" value="10K"/>
