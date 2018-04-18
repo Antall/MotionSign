@@ -5,6 +5,10 @@
 *.b#?
 *.l#?
 
+# Random Files
+*.numbers
+*.csv
+
 # Lock Files
 *.lck
 
