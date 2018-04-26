@@ -4460,7 +4460,7 @@ Source: AVX .. aphvc.pdf</description>
 <packageinstance name="C4564"/>
 </packageinstances>
 </package3d>
-<package3d name="JST-4-PTH" urn="urn:adsk.eagle:package:2811204/1" type="box" library_version="1" library_locally_modified="yes">
+<package3d name="JST-4-PTH" urn="urn:adsk.eagle:package:2811204/2" type="model" library_version="2" library_locally_modified="yes">
 <description>&lt;h3&gt;JST Right Angle 4 Pin Plated Through Hole&lt;/h3&gt;
 &lt;p&gt;Specifications:
 &lt;ul&gt;&lt;li&gt;Pin count: 4&lt;/li&gt;
@@ -4695,7 +4695,7 @@ Silk outline shows header location.
 <packageinstance name="1X04_SMD_VERTICAL_COMBO"/>
 </packageinstances>
 </package3d>
-<package3d name="WS2812B" urn="urn:adsk.eagle:package:2811216/1" type="box" library_version="1" library_locally_modified="yes">
+<package3d name="WS2812B" urn="urn:adsk.eagle:package:2811216/2" type="model" library_version="2" library_locally_modified="yes">
 <packageinstances>
 <packageinstance name="WS2812B"/>
 </packageinstances>
@@ -6576,7 +6576,7 @@ Source: VISHAY wscwsn.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="CONN_04" urn="urn:adsk.eagle:component:2811467/1" prefix="J" uservalue="yes" library_version="1" library_locally_modified="yes">
+<deviceset name="CONN_04" urn="urn:adsk.eagle:component:2811467/1" locally_modified="yes" prefix="J" uservalue="yes" library_version="2" library_locally_modified="yes">
 <description>&lt;h3&gt;Multi connection point. Often used as Generic Header-pin footprint for 0.1 inch spaced/style header connections&lt;/h3&gt;
 
 &lt;p&gt;&lt;/p&gt;
@@ -6665,7 +6665,7 @@ Source: VISHAY wscwsn.pdf</description>
 <connect gate="G$1" pin="4" pad="4"/>
 </connects>
 <package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:2811204/1"/>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:2811204/2"/>
 </package3dinstances>
 <technologies>
 <technology name="">
@@ -6889,7 +6889,7 @@ Source: VISHAY wscwsn.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="WS2812B" urn="urn:adsk.eagle:component:2811463/1" prefix="LED" library_version="1" library_locally_modified="yes">
+<deviceset name="WS2812B" urn="urn:adsk.eagle:component:2811463/1" locally_modified="yes" prefix="LED" library_version="2" library_locally_modified="yes">
 <gates>
 <gate name="G$1" symbol="WS2812BLED" x="0" y="-2.54"/>
 </gates>
@@ -6916,7 +6916,7 @@ Source: VISHAY wscwsn.pdf</description>
 <connect gate="G$1" pin="VDD" pad="1-VDD"/>
 </connects>
 <package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:2811216/1"/>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:2811216/2"/>
 </package3dinstances>
 <technologies>
 <technology name=""/>
@@ -8253,8 +8253,8 @@ Source: VISHAY wscwsn.pdf</description>
 </classes>
 <parts>
 <part name="VR1" library="RemoteMotion" library_urn="urn:adsk.eagle:library:2810894" deviceset="POTENTIOMETER_SLIDE" device="-60MM-1/2W-20%" package3d_urn="urn:adsk.eagle:package:2811214/2" value="10k"/>
-<part name="J1" library="RemoteMotion" library_urn="urn:adsk.eagle:library:2810894" deviceset="CONN_04" device="JST-PTH" package3d_urn="urn:adsk.eagle:package:2811204/1" value="1"/>
-<part name="LED1" library="RemoteMotion" library_urn="urn:adsk.eagle:library:2810894" deviceset="WS2812B" device="5050" package3d_urn="urn:adsk.eagle:package:2811216/1"/>
+<part name="J1" library="RemoteMotion" library_urn="urn:adsk.eagle:library:2810894" deviceset="CONN_04" device="JST-PTH" package3d_urn="urn:adsk.eagle:package:2811204/2" value="1"/>
+<part name="LED1" library="RemoteMotion" library_urn="urn:adsk.eagle:library:2810894" deviceset="WS2812B" device="5050" package3d_urn="urn:adsk.eagle:package:2811216/2"/>
 <part name="GND1" library="RemoteMotion" library_urn="urn:adsk.eagle:library:2810894" deviceset="GND" device=""/>
 <part name="SUPPLY1" library="RemoteMotion" library_urn="urn:adsk.eagle:library:2810894" deviceset="VCC" device=""/>
 <part name="SUPPLY2" library="RemoteMotion" library_urn="urn:adsk.eagle:library:2810894" deviceset="VCC" device=""/>
@@ -8263,7 +8263,7 @@ Source: VISHAY wscwsn.pdf</description>
 <part name="C1" library="RemoteMotion" library_urn="urn:adsk.eagle:library:2810894" deviceset="C-US" device="C0805" package3d_urn="urn:adsk.eagle:package:2811338/2" value="0.1uF"/>
 <part name="SUPPLY3" library="RemoteMotion" library_urn="urn:adsk.eagle:library:2810894" deviceset="VCC" device=""/>
 <part name="GND3" library="RemoteMotion" library_urn="urn:adsk.eagle:library:2810894" deviceset="GND" device=""/>
-<part name="LED2" library="RemoteMotion" library_urn="urn:adsk.eagle:library:2810894" deviceset="WS2812B" device="5050" package3d_urn="urn:adsk.eagle:package:2811216/1"/>
+<part name="LED2" library="RemoteMotion" library_urn="urn:adsk.eagle:library:2810894" deviceset="WS2812B" device="5050" package3d_urn="urn:adsk.eagle:package:2811216/2"/>
 <part name="C2" library="RemoteMotion" library_urn="urn:adsk.eagle:library:2810894" deviceset="C-US" device="C0805" package3d_urn="urn:adsk.eagle:package:2811338/2" value="0.1uF"/>
 <part name="SUPPLY4" library="RemoteMotion" library_urn="urn:adsk.eagle:library:2810894" deviceset="VCC" device=""/>
 <part name="GND4" library="RemoteMotion" library_urn="urn:adsk.eagle:library:2810894" deviceset="GND" device=""/>
