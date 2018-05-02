@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="8.7.1">
+<eagle version="9.0.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -5069,14 +5069,14 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 </autorouter>
 <elements>
 <element name="C10" library="adafruit" package="C0805" value="0.1uF" x="106.7816" y="24.1808" smashed="yes">
-<attribute name="VALUE" x="109.4867" y="23.114" size="0.508" layer="27" rot="R90"/>
+<attribute name="VALUE" x="109.2327" y="23.368" size="0.508" layer="27" rot="R90"/>
 </element>
 <element name="R11" library="adafruit" package="M0805" value="300" x="122.682" y="9.652" smashed="yes" rot="R180">
 <attribute name="NAME" x="124.714" y="9.652" size="0.508" layer="25" rot="R270" align="bottom-center"/>
-<attribute name="VALUE" x="120.142" y="9.652" size="0.508" layer="27" rot="R270" align="bottom-center"/>
+<attribute name="VALUE" x="122.428" y="8.128" size="0.508" layer="27" align="bottom-center"/>
 </element>
 <element name="LED1" library="led" library_urn="urn:adsk.eagle:library:259" package="CHIPLED_0805" package3d_urn="urn:adsk.eagle:package:15821/2" value="Red" x="122.682" y="9.652" smashed="yes" rot="MR270">
-<attribute name="NAME" x="120.904" y="9.652" size="0.508" layer="26" rot="MR270" align="bottom-center"/>
+<attribute name="NAME" x="121.412" y="11.176" size="0.508" layer="26" rot="MR180" align="bottom-center"/>
 <attribute name="VALUE" x="124.968" y="9.652" size="0.508" layer="28" rot="MR270" align="bottom-center"/>
 </element>
 <element name="R2" library="adafruit" package="M0805" value="10K" x="84.836" y="24.257" smashed="yes" rot="R270">
@@ -5089,7 +5089,7 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 <attribute name="VALUE" x="79.2607" y="37.465" size="0.508" layer="27" rot="R90"/>
 </element>
 <element name="R6" library="adafruit" package="M0805" value="300" x="93.726" y="40.64" smashed="yes">
-<attribute name="VALUE" x="95.758" y="40.64" size="0.508" layer="27" rot="R270" align="bottom-center"/>
+<attribute name="VALUE" x="91.44" y="40.64" size="0.508" layer="27" rot="R270" align="bottom-center"/>
 </element>
 <element name="D3" library="led" library_urn="urn:adsk.eagle:library:259" package="CHIPLED_0805" package3d_urn="urn:adsk.eagle:package:15821/2" value="Green" x="93.726" y="40.64" smashed="yes" rot="MR270">
 <attribute name="VALUE" x="93.726" y="41.402" size="0.508" layer="28" rot="MR0" align="bottom-center"/>
@@ -5141,7 +5141,7 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 <attribute name="PROD_ID" value="IC-13430" x="99.822" y="32.639" size="1.778" layer="28" rot="MR180" display="off"/>
 </element>
 <element name="R5" library="adafruit" package="M0805" value="43k" x="116.586" y="33.147" smashed="yes" rot="R180">
-<attribute name="NAME" x="114.366" y="33.589" size="0.508" layer="25" rot="R270"/>
+<attribute name="NAME" x="114.615" y="32.954" size="0.508" layer="25" rot="R180"/>
 <attribute name="VALUE" x="118.684" y="33.6398" size="0.508" layer="27" rot="R270"/>
 </element>
 <element name="C6" library="adafruit" package="C0805" value="0.1uF" x="120.142" y="19.177" smashed="yes">
@@ -5149,7 +5149,7 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 <attribute name="VALUE" x="122.7446" y="18.2508" size="0.508" layer="27" rot="R90"/>
 </element>
 <element name="C5" library="adafruit" package="C0805" value="0.1uF" x="116.586" y="35.179" smashed="yes">
-<attribute name="NAME" x="114.9722" y="34.7862" size="0.508" layer="25" rot="R90"/>
+<attribute name="NAME" x="114.5658" y="35.9782" size="0.508" layer="25" rot="R180"/>
 <attribute name="VALUE" x="119.1886" y="34.2528" size="0.508" layer="27" rot="R90"/>
 </element>
 <element name="R1" library="adafruit" package="M0805" value="10k" x="115.57" y="19.177" smashed="yes" rot="R180">
@@ -5166,7 +5166,7 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 </element>
 <element name="R3" library="adafruit" package="M0805" value="560k" x="112.522" y="24.511" smashed="yes" rot="R180">
 <attribute name="NAME" x="110.2766" y="24.9276" size="0.508" layer="25" rot="R270"/>
-<attribute name="VALUE" x="114.62" y="25.207" size="0.508" layer="27" rot="R270"/>
+<attribute name="VALUE" x="114.239" y="24.704" size="0.508" layer="27"/>
 </element>
 <element name="C8" library="adafruit" package="C0805" value="22uF" x="107.696" y="27.051" smashed="yes" rot="R180">
 <attribute name="NAME" x="105.5506" y="27.4946" size="0.508" layer="25" rot="R270"/>
@@ -5174,7 +5174,7 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 </element>
 <element name="R4" library="adafruit" package="M0805" value="10k" x="107.696" y="29.083" smashed="yes" rot="R180">
 <attribute name="NAME" x="109.474" y="29.464" size="0.508" layer="25" rot="R270"/>
-<attribute name="VALUE" x="105.156" y="29.718" size="0.508" layer="27" rot="R270"/>
+<attribute name="VALUE" x="105.41" y="29.718" size="0.508" layer="27" rot="R270"/>
 </element>
 <element name="C9" library="adafruit" package="C0805" value="10nF" x="113.538" y="29.845" smashed="yes" rot="R90">
 <attribute name="NAME" x="114.007" y="31.965" size="0.508" layer="25" rot="R180"/>
@@ -5202,8 +5202,8 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 <attribute name="VALUE" x="123.952" y="28.321" size="0.508" layer="28" rot="MR90" align="bottom-center"/>
 </element>
 <element name="R10" library="adafruit" package="M0805" value="1k" x="125.476" y="27.813" smashed="yes" rot="R90">
-<attribute name="NAME" x="126.1212" y="30.3886" size="0.508" layer="25" rot="R180"/>
-<attribute name="VALUE" x="125.7656" y="25.6896" size="0.508" layer="27" rot="R180"/>
+<attribute name="NAME" x="123.952" y="29.21" size="0.508" layer="25" rot="R270" align="bottom-center"/>
+<attribute name="VALUE" x="123.952" y="26.162" size="0.508" layer="27" rot="R270" align="bottom-center"/>
 </element>
 <element name="C14" library="adafruit" package="C0805" value="10uF" x="70.104" y="28.702" smashed="yes" rot="R180">
 <attribute name="NAME" x="72.136" y="28.702" size="0.508" layer="25" rot="R270" align="bottom-center"/>
@@ -5230,7 +5230,7 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 <attribute name="VALUE" x="48.006" y="22.352" size="0.508" layer="27" ratio="10" rot="R180" align="bottom-center"/>
 </element>
 <element name="D9" library="microbuilder" package="SOD-323" value="1n4148" x="52.705" y="13.97" smashed="yes">
-<attribute name="VALUE" x="51.4526" y="12.686" size="0.508" layer="27" ratio="10"/>
+<attribute name="VALUE" x="52.4686" y="12.686" size="0.508" layer="27" ratio="10"/>
 </element>
 <element name="R20" library="adafruit" package="M0805" value="10K" x="52.324" y="23.876" smashed="yes">
 <attribute name="VALUE" x="54.356" y="23.876" size="0.508" layer="27" ratio="10" rot="R270" align="bottom-center"/>
@@ -5252,16 +5252,16 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 <attribute name="VALUE" x="99.6" y="43.343" size="0.508" layer="28" font="vector" rot="MR180"/>
 </element>
 <element name="U5" library="SparkFun-DigitalIC" package="SOP-14" value="WS2801" x="101.6" y="40.005" smashed="yes" rot="R270">
-<attribute name="NAME" x="100.711" y="36.957" size="0.508" layer="25" rot="R180"/>
+<attribute name="NAME" x="101.981" y="36.957" size="0.508" layer="25" rot="R180"/>
 <attribute name="VALUE" x="102.489" y="36.322" size="0.508" layer="27" rot="R180"/>
 </element>
 <element name="R12" library="adafruit" package="M0805" value="100" x="108.204" y="38.989" smashed="yes">
-<attribute name="NAME" x="110.363" y="38.354" size="0.508" layer="25" rot="R90"/>
+<attribute name="NAME" x="111.379" y="38.354" size="0.508" layer="25" rot="R90"/>
 <attribute name="VALUE" x="106.045" y="38.481" size="0.508" layer="27" rot="R90"/>
 </element>
 <element name="R13" library="adafruit" package="M0805" value="160" x="108.204" y="41.021" smashed="yes">
 <attribute name="NAME" x="110.363" y="40.386" size="0.508" layer="25" rot="R90"/>
-<attribute name="VALUE" x="106.045" y="40.513" size="0.508" layer="27" rot="R90"/>
+<attribute name="VALUE" x="106.045" y="41.021" size="0.508" layer="27" rot="R90"/>
 </element>
 <element name="R14" library="adafruit" package="M0805" value="100" x="108.204" y="36.957" smashed="yes">
 <attribute name="NAME" x="110.49" y="36.322" size="0.508" layer="25" rot="R90"/>
@@ -6622,34 +6622,6 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 </signal>
 </signals>
 <errors>
-<approved hash="5,1,e173c4d53c526bc7"/>
-<approved hash="5,1,41ca3bc933f04fb9"/>
-<approved hash="5,1,d6bce19a8735caa9"/>
-<approved hash="5,1,b7a6a35c03545db8"/>
-<approved hash="5,1,64dc52bc1d6b78f6"/>
-<approved hash="5,1,0de21043ff1ba19f"/>
-<approved hash="5,1,f3dfd4f1c508a960"/>
-<approved hash="5,1,8e958a7662251d5c"/>
-<approved hash="5,1,a9fc6ace411f946a"/>
-<approved hash="5,1,6c0b3d9ad0309483"/>
-<approved hash="5,1,42dc4f324520a765"/>
-<approved hash="5,1,865390d9e10a8443"/>
-<approved hash="5,1,e202e0562696973b"/>
-<approved hash="5,1,8f2842ad10c79879"/>
-<approved hash="5,1,b1cdac34ededd7af"/>
-<approved hash="5,1,d371fc8d684f19fd"/>
-<approved hash="5,1,6c97460ee5b8540f"/>
-<approved hash="5,1,49b449357caf6f7f"/>
-<approved hash="5,1,2c5ef85ff61be8b9"/>
-<approved hash="5,1,314b3318eb216284"/>
-<approved hash="5,1,2a361974c51fe45c"/>
-<approved hash="5,1,9450982da913fa78"/>
-<approved hash="5,1,97927f4f40f763a9"/>
-<approved hash="5,1,d834e7c47a047ca7"/>
-<approved hash="5,1,3ee7d8e13f108f45"/>
-<approved hash="5,1,91dca09e2f0aac41"/>
-<approved hash="5,1,3b2914de0ad5d461"/>
-<approved hash="5,1,0200e2ba2497d332"/>
 <approved hash="3,1,50a7b94db80d51e7"/>
 <approved hash="3,1,b8a4254e240eb9e4"/>
 <approved hash="5,1,b528e8faf1f3e192"/>
