@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="8.7.1">
+<eagle version="9.0.1">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -27336,7 +27336,7 @@ Mode Select</text>
 <attribute name="VALUE" x="171.196" y="107.569" size="1.778" layer="96"/>
 </instance>
 <instance part="GND1" gate="1" x="170.18" y="101.6"/>
-<instance part="C1" gate="G$1" x="165.1" y="142.24" smashed="yes" rot="R180">
+<instance part="C1" gate="G$1" x="165.1" y="139.7" smashed="yes" rot="R180">
 <attribute name="NAME" x="166.116" y="142.367" size="1.778" layer="95"/>
 <attribute name="VALUE" x="166.116" y="137.541" size="1.778" layer="96"/>
 </instance>
@@ -27523,7 +27523,7 @@ Mode Select</text>
 <pinref part="GND1" gate="1" pin="GND"/>
 </segment>
 <segment>
-<wire x1="165.1" y1="134.62" x2="165.1" y2="139.7" width="0.1524" layer="91"/>
+<wire x1="165.1" y1="134.62" x2="165.1" y2="137.16" width="0.1524" layer="91"/>
 <pinref part="C1" gate="G$1" pin="1"/>
 <pinref part="GND7" gate="1" pin="GND"/>
 </segment>
@@ -27753,10 +27753,11 @@ Mode Select</text>
 </net>
 <net name="AREF" class="0">
 <segment>
-<wire x1="182.88" y1="147.32" x2="165.1" y2="147.32" width="0.1524" layer="91"/>
 <label x="172.72" y="147.32" size="1.778" layer="95"/>
 <pinref part="C1" gate="G$1" pin="2"/>
 <pinref part="U1" gate="G$1" pin="AREF"/>
+<wire x1="165.1" y1="144.78" x2="165.1" y2="147.32" width="0.1524" layer="91"/>
+<wire x1="165.1" y1="147.32" x2="182.88" y2="147.32" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="RESET" class="0">
@@ -28641,13 +28642,6 @@ Mode Select</text>
 <label x="119.38" y="223.52" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
-<net name="E" class="0">
-<segment>
-<pinref part="U8" gate="G$1" pin="B2"/>
-<wire x1="116.84" y1="220.98" x2="119.38" y2="220.98" width="0.1524" layer="91"/>
-<label x="119.38" y="220.98" size="1.27" layer="95" xref="yes"/>
-</segment>
-</net>
 <net name="LCD_D4" class="0">
 <segment>
 <pinref part="U9" gate="G$1" pin="DB4"/>
@@ -28790,6 +28784,11 @@ Mode Select</text>
 <pinref part="U9" gate="G$1" pin="E"/>
 <wire x1="71.12" y1="302.26" x2="81.28" y2="302.26" width="0.1524" layer="91"/>
 <label x="71.12" y="302.26" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
+<segment>
+<pinref part="U8" gate="G$1" pin="B2"/>
+<wire x1="116.84" y1="220.98" x2="119.38" y2="220.98" width="0.1524" layer="91"/>
+<label x="119.38" y="220.98" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="N$17" class="0">
