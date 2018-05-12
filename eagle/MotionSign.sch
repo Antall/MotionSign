@@ -27320,6 +27320,7 @@ Mode Select</text>
 <text x="180.34" y="175.26" size="3.556" layer="94" ratio="15">Microcontroller</text>
 <text x="2.54" y="228.6" size="3.556" layer="94" ratio="15">Board LED</text>
 <text x="71.12" y="248.92" size="3.556" layer="94" ratio="15">Level Shifter</text>
+<text x="172.72" y="195.58" size="1.778" layer="97">GPIO4 &amp; GPIO5 maybe switched.</text>
 </plain>
 <instances>
 <instance part="C10" gate="G$1" x="88.9" y="149.86"/>
