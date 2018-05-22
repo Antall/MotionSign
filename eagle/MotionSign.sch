@@ -17248,7 +17248,7 @@ will be further integrated into the Sparkfun Library for other footprints.  It c
 <packageinstance name="1X06-SMD-FEMALE"/>
 </packageinstances>
 </package3d>
-<package3d name="SMT-JUMPER_2_NO_SILK" urn="urn:adsk.eagle:package:3048922/1" type="box" library_version="1">
+<package3d name="SMT-JUMPER_2_NO_SILK" urn="urn:adsk.eagle:package:3048922/2" type="box" library_version="5">
 <packageinstances>
 <packageinstance name="SMT-JUMPER_2_NO_SILK"/>
 </packageinstances>
@@ -18640,7 +18640,7 @@ Used on WS2801 RGB controller</description>
 <packageinstance name="TSSOP20"/>
 </packageinstances>
 </package3d>
-<package3d name="LCD-20X4-1HOLE_NOSILK" urn="urn:adsk.eagle:package:3048858/3" type="model" library_version="3">
+<package3d name="LCD-20X4-1HOLE_NOSILK" urn="urn:adsk.eagle:package:3048858/4" type="model" library_version="5">
 <packageinstances>
 <packageinstance name="LCD-20X4-1HOLE_NOSILK"/>
 </packageinstances>
@@ -21740,7 +21740,7 @@ will be further integrated into the Sparkfun Library for other footprints.  It c
 </device>
 </devices>
 </deviceset>
-<deviceset name="JUMPER-SMT_2_NO" urn="urn:adsk.eagle:component:3049192/1" prefix="JP" library_version="1">
+<deviceset name="JUMPER-SMT_2_NO" urn="urn:adsk.eagle:component:3049192/2" prefix="JP" library_version="5">
 <description>&lt;h3&gt;Normally open jumper&lt;/h3&gt;
 &lt;p&gt;This jumper has two pads in close proximity to each other. Apply solder to close the connection.&lt;/p&gt;
 
@@ -21782,7 +21782,7 @@ will be further integrated into the Sparkfun Library for other footprints.  It c
 <connect gate="G$1" pin="2" pad="2"/>
 </connects>
 <package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:3048922/1"/>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:3048922/2"/>
 </package3dinstances>
 <technologies>
 <technology name=""/>
@@ -24653,7 +24653,7 @@ Datasheet:  http://www.sparkfun.com/datasheets/Components/LED/WS2801.pdf</descri
 </device>
 </devices>
 </deviceset>
-<deviceset name="LCD-HD44780" urn="urn:adsk.eagle:component:3049206/3" library_version="3">
+<deviceset name="LCD-HD44780" urn="urn:adsk.eagle:component:3049206/4" library_version="5">
 <gates>
 <gate name="G$1" symbol="LCD-HD44780" x="0" y="0"/>
 </gates>
@@ -24678,7 +24678,7 @@ Datasheet:  http://www.sparkfun.com/datasheets/Components/LED/WS2801.pdf</descri
 <connect gate="G$1" pin="VSS" pad="P$1"/>
 </connects>
 <package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:3048858/3"/>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:3048858/4"/>
 </package3dinstances>
 <technologies>
 <technology name=""/>
@@ -25024,7 +25024,7 @@ Datasheet:  http://www.sparkfun.com/datasheets/Components/LED/WS2801.pdf</descri
 <part name="GND22" library="MotionSign" library_urn="urn:adsk.eagle:library:3048452" deviceset="GND" device=""/>
 <part name="S3" library="MotionSign" library_urn="urn:adsk.eagle:library:3048452" deviceset="MOMENTARY-SWITCH-SPST" device="-SMD-5.2-REDUNDANT" package3d_urn="urn:adsk.eagle:package:3048933/2" value="Reset"/>
 <part name="S4" library="MotionSign" library_urn="urn:adsk.eagle:library:3048452" deviceset="MOMENTARY-SWITCH-SPST" device="-SMD-5.2-REDUNDANT" package3d_urn="urn:adsk.eagle:package:3048933/2" value="GPIO0"/>
-<part name="U9" library="MotionSign" library_urn="urn:adsk.eagle:library:3048452" deviceset="LCD-HD44780" device="" package3d_urn="urn:adsk.eagle:package:3048858/3" value="LCD-HD4478020X4-4HOLES"/>
+<part name="U9" library="MotionSign" library_urn="urn:adsk.eagle:library:3048452" deviceset="LCD-HD44780" device="" package3d_urn="urn:adsk.eagle:package:3048858/4" value="LCD-HD4478020X4-4HOLES"/>
 <part name="GND23" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="VCC" library="MotionSign" library_urn="urn:adsk.eagle:library:3048452" deviceset="VCC" device="" value="VCC"/>
 <part name="CTRST" library="MotionSign" library_urn="urn:adsk.eagle:library:3048452" deviceset="R-TRIMM" device="3296W" package3d_urn="urn:adsk.eagle:package:3049158/2" value="10K"/>
@@ -25040,7 +25040,7 @@ Datasheet:  http://www.sparkfun.com/datasheets/Components/LED/WS2801.pdf</descri
 <part name="MODE" library="MotionSign" library_urn="urn:adsk.eagle:library:3048452" deviceset="CONN_02" device="" package3d_urn="urn:adsk.eagle:package:3048865/2"/>
 <part name="GND17" library="MotionSign" library_urn="urn:adsk.eagle:library:3048452" deviceset="GND" device=""/>
 <part name="D6" library="MotionSign" library_urn="urn:adsk.eagle:library:3048452" deviceset="LED-RGB" device="NO_IC" package3d_urn="urn:adsk.eagle:package:3048924/2"/>
-<part name="JP2" library="MotionSign" library_urn="urn:adsk.eagle:library:3048452" deviceset="JUMPER-SMT_2_NO" device="_SILK" package3d_urn="urn:adsk.eagle:package:3048922/1" value="USE 5V POWER"/>
+<part name="JP2" library="MotionSign" library_urn="urn:adsk.eagle:library:3048452" deviceset="JUMPER-SMT_2_NO" device="_SILK" package3d_urn="urn:adsk.eagle:package:3048922/2" value="USE 5V POWER"/>
 </parts>
 <sheets>
 <sheet>
