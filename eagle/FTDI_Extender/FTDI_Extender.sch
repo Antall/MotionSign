@@ -895,7 +895,7 @@ Alternate pin configuration
 <text x="-0.508" y="3.302" size="0.6096" layer="25" font="vector" ratio="20">&gt;NAME</text>
 <text x="-0.635" y="-3.937" size="0.6096" layer="27" font="vector" ratio="20">&gt;VALUE</text>
 </package>
-<package name="1X06_90_FEMALE" library_version="1" library_locally_modified="yes">
+<package name="1X06_90_FEMALE" urn="urn:adsk.eagle:footprint:3113630/1" library_version="3">
 <description>&lt;h3&gt;Plated Through Hole - 6 Pin&lt;/h3&gt;
 &lt;p&gt;Specifications:
 &lt;ul&gt;&lt;li&gt;Pin count:6&lt;/li&gt;
@@ -957,7 +957,7 @@ Alternate pin configuration
 <text x="-1.27" y="1.397" size="0.6096" layer="25" font="vector" ratio="20">&gt;NAME</text>
 <text x="-1.27" y="-2.032" size="0.6096" layer="27" font="vector" ratio="20">&gt;VALUE</text>
 </package>
-<package name="1X06_90_MALE" library_version="1" library_locally_modified="yes">
+<package name="1X06_90_MALE" urn="urn:adsk.eagle:footprint:3113629/1" library_version="3">
 <description>&lt;h3&gt;Plated Through Hole - 6 Pin&lt;/h3&gt;
 &lt;p&gt;Specifications:
 &lt;ul&gt;&lt;li&gt;Pin count:6&lt;/li&gt;
@@ -1306,6 +1306,32 @@ Alternate pin configuration
 <packageinstance name="1X06_SMD_MALE"/>
 </packageinstances>
 </package3d>
+<package3d name="1X06_90_FEMALE" urn="urn:adsk.eagle:package:3113632/3" type="model" library_version="4">
+<description>&lt;h3&gt;Plated Through Hole - 6 Pin&lt;/h3&gt;
+&lt;p&gt;Specifications:
+&lt;ul&gt;&lt;li&gt;Pin count:6&lt;/li&gt;
+&lt;li&gt;Pin pitch:0.1"&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;
+&lt;p&gt;Example device(s):
+&lt;ul&gt;&lt;li&gt;CONN_06&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;</description>
+<packageinstances>
+<packageinstance name="1X06_90_FEMALE"/>
+</packageinstances>
+</package3d>
+<package3d name="1X06_90_MALE" urn="urn:adsk.eagle:package:3113631/3" type="model" library_version="4">
+<description>&lt;h3&gt;Plated Through Hole - 6 Pin&lt;/h3&gt;
+&lt;p&gt;Specifications:
+&lt;ul&gt;&lt;li&gt;Pin count:6&lt;/li&gt;
+&lt;li&gt;Pin pitch:0.1"&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;
+&lt;p&gt;Example device(s):
+&lt;ul&gt;&lt;li&gt;CONN_06&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;</description>
+<packageinstances>
+<packageinstance name="1X06_90_MALE"/>
+</packageinstances>
+</package3d>
 </packages3d>
 <symbols>
 <symbol name="CONN_06" urn="urn:adsk.eagle:symbol:3113510/1" library_version="1">
@@ -1331,7 +1357,7 @@ Alternate pin configuration
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="CONN_06" urn="urn:adsk.eagle:component:3113531/1" locally_modified="yes" prefix="J" uservalue="yes" library_version="1" library_locally_modified="yes">
+<deviceset name="CONN_06" urn="urn:adsk.eagle:component:3113531/4" prefix="J" uservalue="yes" library_version="4">
 <description>&lt;h3&gt;Multi connection point. Often used as Generic Header-pin footprint for 0.1 inch spaced/style header connections&lt;/h3&gt;
 
 &lt;p&gt;&lt;/p&gt;
@@ -1730,6 +1756,9 @@ Alternate pin configuration
 <connect gate="G$1" pin="5" pad="5"/>
 <connect gate="G$1" pin="6" pad="6"/>
 </connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:3113632/3"/>
+</package3dinstances>
 <technologies>
 <technology name=""/>
 </technologies>
@@ -1743,6 +1772,9 @@ Alternate pin configuration
 <connect gate="G$1" pin="5" pad="5"/>
 <connect gate="G$1" pin="6" pad="6"/>
 </connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:3113631/3"/>
+</package3dinstances>
 <technologies>
 <technology name=""/>
 </technologies>
@@ -1761,8 +1793,8 @@ Alternate pin configuration
 </class>
 </classes>
 <parts>
-<part name="J1" library="FTDI_Extender" library_urn="urn:adsk.eagle:library:3113489" deviceset="CONN_06" device="90_MALE"/>
-<part name="J2" library="FTDI_Extender" library_urn="urn:adsk.eagle:library:3113489" deviceset="CONN_06" device="90_FEMALE" value="90 MALE"/>
+<part name="J1" library="FTDI_Extender" library_urn="urn:adsk.eagle:library:3113489" deviceset="CONN_06" device="90_MALE" package3d_urn="urn:adsk.eagle:package:3113631/3"/>
+<part name="J2" library="FTDI_Extender" library_urn="urn:adsk.eagle:library:3113489" deviceset="CONN_06" device="90_FEMALE" package3d_urn="urn:adsk.eagle:package:3113632/3" value="90 MALE"/>
 </parts>
 <sheets>
 <sheet>
