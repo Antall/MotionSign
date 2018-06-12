@@ -25020,7 +25020,7 @@ Datasheet:  http://www.sparkfun.com/datasheets/Components/LED/WS2801.pdf</descri
 <part name="GND21" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="SUPPLY11" library="MotionSign" library_urn="urn:adsk.eagle:library:3048452" deviceset="VCC" device=""/>
 <part name="U7" library="MotionSign" library_urn="urn:adsk.eagle:library:3048452" deviceset="NJVMJD2955T4G" device="" package3d_urn="urn:adsk.eagle:package:3048862/2"/>
-<part name="R15" library="MotionSign" library_urn="urn:adsk.eagle:library:3048452" deviceset="R-US_" device="M0805" package3d_urn="urn:adsk.eagle:package:3049036/2" value="22"/>
+<part name="R15" library="MotionSign" library_urn="urn:adsk.eagle:library:3048452" deviceset="R-US_" device="0204/7" package3d_urn="urn:adsk.eagle:package:3048939/2" value="22"/>
 <part name="GND22" library="MotionSign" library_urn="urn:adsk.eagle:library:3048452" deviceset="GND" device=""/>
 <part name="S3" library="MotionSign" library_urn="urn:adsk.eagle:library:3048452" deviceset="MOMENTARY-SWITCH-SPST" device="-SMD-5.2-REDUNDANT" package3d_urn="urn:adsk.eagle:package:3048933/2" value="Reset"/>
 <part name="S4" library="MotionSign" library_urn="urn:adsk.eagle:library:3048452" deviceset="MOMENTARY-SWITCH-SPST" device="-SMD-5.2-REDUNDANT" package3d_urn="urn:adsk.eagle:package:3048933/2" value="GPIO0"/>
