@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include "OpenPIR.h"
-#include <avr/io.h>
+//#include <avr/io.h>
 
 
 #define PIR_AOUT A0  // PIR analog output on A0

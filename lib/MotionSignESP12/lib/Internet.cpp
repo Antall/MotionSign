@@ -1,11 +1,8 @@
 #include "Internet.h"
+#include "env.h"
 
 const unsigned long UPDATE_TIME = (unsigned long)5*1000;
 
-const char* SSID     = "Artisan's Asylum";
-const char* PASSWORD = "I won't download stuff that will get us in legal trouble.";
-const char* HOST = "172.16.11.16";
-const int PORT = 4567;
 const int ROOM_NUMBER = 2;
 
 void Internet::init(){
@@ -16,15 +13,19 @@ void Internet::init(){
 #ifdef DEBUG_PRINT
   Serial.print("Connecting to ");
   Serial.println(SSID);
+  Serial.println(PASSWORD);
 #endif
 
   delay(100);
-  WiFi.begin(SSID, PASSWORD);
 
+  uint8_t requestCount = 0;
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
 #ifdef DEBUG_PRINT
     Serial.print(".");
+    if (requestCount++ % 25 == 0){
+      Serial.print("\n");
+    }
 #endif
   }
 

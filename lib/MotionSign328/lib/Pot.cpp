@@ -5,7 +5,7 @@
 #define POT_INDICATOR_PIN 3
 
 const uint8_t INDICATOR_COUNT = 2;
-const uint8_t UPDATE_DURRATION = 5;
+const unsigned long UPDATE_DURRATION = 5;
 
 void Pot::init(){
   lastRun = 0;

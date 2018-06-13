@@ -14,6 +14,8 @@
 #include <MotionSign328.h>
 MotionSign328 motionSign;
 
+#undef DEBUG
+
 void setup(){
 
   #if defined (__AVR_ATtiny85__)

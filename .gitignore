@@ -15,6 +15,9 @@
 # Log Files
 *.log
 
+# ENV
+env.h
+
 # Eagle project file
 # It contains a serial number and references to the file structure
 # on your computer.

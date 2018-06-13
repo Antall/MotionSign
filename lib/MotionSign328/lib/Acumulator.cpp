@@ -15,7 +15,7 @@ void Acumulator::resetPts(){
 }
 
 void Acumulator::checkNudge(Data &data, unsigned long currMillis){
-  if(currMillis - lastNudge < 200){ return; }
+  if(currMillis - lastNudge < (unsigned long)200){ return; }
   lastNudge = currMillis;
   data.motion.nudgeMax();
 }

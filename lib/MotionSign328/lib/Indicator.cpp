@@ -9,7 +9,7 @@ const uint8_t MIN_HUE_SPEED = 10;
 const uint8_t MAX_STROBE_TIME = 500;
 const uint8_t MIN_STROBE_TIME = 50;
 
-const uint8_t UPDATE_DURRATION = 5;
+const unsigned long UPDATE_DURRATION = 5;
 
 void Indicator::init(){
   lastRun = 0;
