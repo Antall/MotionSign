@@ -16,7 +16,8 @@ void Internet::init(){
   Serial.println(PASSWORD);
 #endif
 
-  delay(100);
+  delay(200);
+  WiFi.begin(SSID, PASSWORD);
 
   uint8_t requestCount = 0;
   while (WiFi.status() != WL_CONNECTED) {
