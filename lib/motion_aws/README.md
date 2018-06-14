@@ -1,0 +1,23 @@
+#MotionSign
+
+## Lambda
+To deploy the lambda run the following command from the projects root directory.
+
+```bash
+$ cd lib/motion_aws/
+
+# zip the python file first
+$ zip -r MotionSign.zip MotionSign.py
+
+# upload the zipped file to the lambda function
+$ aws lambda update-function-code --function-name MotionSign --zip-file fileb://MotionSign.zip
+```
+
+## API Gateway
+The API Gateway is already setup to talk to the MotionSign lambda.
+
+ The endpoint to hit is: https://tawd2jtko1.execute-api.us-east-1.amazonaws.com/prod/MotionSign
+
+You need to set the *x-api-key: {api_key}* name/value pair in the headers.
+
+## API Endpoints
