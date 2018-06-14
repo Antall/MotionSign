@@ -1,4 +1,7 @@
 #include "Effects.h"
+#include "Pixel.h"
+
+const uint8_t INDICATOR_COUNT = 1;
 
 Effects::Effects(){
   this->reset();
@@ -8,7 +11,7 @@ Effects::Effects(){
 void Effects::init(){
   sign.init();
   //strip = Adafruit_WS2801(LED_COUNT, DATA_PIN, CLK_PIN);
-  strip = Adafruit_WS2801(LED_COUNT, WS2801_RGB);
+  strip = Adafruit_WS2801(LED_COUNT+INDICATOR_COUNT, WS2801_RGB);
   strip.begin();
   strip.show();
 }
@@ -23,16 +26,22 @@ void Effects::run(Data &data){
   if(currMillis - lastRun > UPDATE_DURRATION){
     lastRun = currMillis;
     effect -> run(sign, data);
-    this -> updateStrip();
+    this -> updateStrip(data);
     strip.show();
     data.motion.resetCurrent();
   }
 }
 
-void Effects::updateStrip(){
-  uint8_t offset = 0;
-  for(uint8_t idx = offset; idx< LED_COUNT; idx++){
+void Effects::updateStrip(Data &data){
+  // Set Indicator at begining of string
+  uint32_t color = ColorFromHSV(data.indicatorColor);
+  for(uint8_t idx = 0; idx<INDICATOR_COUNT; idx++){
+    strip.setPixelColor(idx, color);
+  }
+
+  // Set rest of string
+  for(uint8_t idx = 0; idx<LED_COUNT; idx++){
     Pixel* pixel = sign.pixel(idx);
-    strip.setPixelColor(idx-offset, pixel->color());
+    strip.setPixelColor(idx+INDICATOR_COUNT, pixel->color());
   }
 }

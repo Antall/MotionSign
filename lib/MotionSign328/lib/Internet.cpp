@@ -3,7 +3,7 @@
 #define OCCUPIED_PIN 5
 #define RESERVED_PIN 6
 
-const uint8_t UPDATE_TIME = 50;
+const unsigned long UPDATE_TIME = 50;
 
 void Internet::init(){
   lastRun = 0;

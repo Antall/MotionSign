@@ -7,10 +7,11 @@ MotionSignESP12::MotionSignESP12(){
 void MotionSignESP12::init(){
   signChip.init();
   internet.init();
+  display.init();
 }
 
 void MotionSignESP12::run(){
-  Serial.print(data.isReserved);
   signChip.run(data);
   internet.run(data);
+  display.run(data);
 }

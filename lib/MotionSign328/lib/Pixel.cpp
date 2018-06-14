@@ -23,6 +23,10 @@ void Pixel::set(uint16_t h, uint8_t s, uint8_t v){
 
 uint32_t Pixel::color()
 {
+  return ColorFromHSV(hsv);
+}
+
+uint32_t ColorFromHSV(ColorHSV hsv){
     unsigned char region, fpart, p, q, t, r, g, b;
 
     uint16_t h = hsv.hue >> 8,

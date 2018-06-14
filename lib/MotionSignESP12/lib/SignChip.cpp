@@ -1,7 +1,7 @@
 #include "SignChip.h"
 #include "Arduino.h"
-#define OCCUPIED_PIN 5
-#define RESERVED_PIN 4
+#define OCCUPIED_PIN 4
+#define RESERVED_PIN 5
 
 const uint8_t UPDATE_TIME = 50;
 
