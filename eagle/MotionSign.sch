@@ -24955,11 +24955,11 @@ Datasheet:  http://www.sparkfun.com/datasheets/Components/LED/WS2801.pdf</descri
 <part name="R4" library="MotionSign" library_urn="urn:adsk.eagle:library:3048452" deviceset="R-US_" device="M0805" package3d_urn="urn:adsk.eagle:package:3049036/2" value="10k"/>
 <part name="C9" library="MotionSign" library_urn="urn:adsk.eagle:library:3048452" deviceset="C-US" device="C0805" package3d_urn="urn:adsk.eagle:package:3049016/2" value="10nF"/>
 <part name="GND13" library="MotionSign" library_urn="urn:adsk.eagle:library:3048452" deviceset="GND" device=""/>
-<part name="R7" library="MotionSign" library_urn="urn:adsk.eagle:library:3048452" deviceset="TRIMPOT" device="TX33X-1M" package3d_urn="urn:adsk.eagle:package:3049112/2" value="1M"/>
+<part name="R7/SEN" library="MotionSign" library_urn="urn:adsk.eagle:library:3048452" deviceset="TRIMPOT" device="TX33X-1M" package3d_urn="urn:adsk.eagle:package:3049112/2" value="1M"/>
 <part name="C11" library="MotionSign" library_urn="urn:adsk.eagle:library:3048452" deviceset="C-US" device="C0805" package3d_urn="urn:adsk.eagle:package:3049016/2" value="0.1uF"/>
 <part name="SUPPLY4" library="MotionSign" library_urn="urn:adsk.eagle:library:3048452" deviceset="VCC" device=""/>
 <part name="GND14" library="MotionSign" library_urn="urn:adsk.eagle:library:3048452" deviceset="GND" device=""/>
-<part name="R8" library="MotionSign" library_urn="urn:adsk.eagle:library:3048452" deviceset="TRIMPOT" device="TX33X-1M" package3d_urn="urn:adsk.eagle:package:3049112/2" value="1M"/>
+<part name="R8/OSC" library="MotionSign" library_urn="urn:adsk.eagle:library:3048452" deviceset="TRIMPOT" device="TX33X-1M" package3d_urn="urn:adsk.eagle:package:3049112/2" value="1M"/>
 <part name="R9" library="MotionSign" library_urn="urn:adsk.eagle:library:3048452" deviceset="R-US_" device="M0805" package3d_urn="urn:adsk.eagle:package:3049036/2" value="51k"/>
 <part name="TP1" library="MotionSign" library_urn="urn:adsk.eagle:library:3048452" deviceset="TEST-POINT" device="3X5" package3d_urn="urn:adsk.eagle:package:3048905/1" value="TEST-POINT3X5"/>
 <part name="TP2" library="MotionSign" library_urn="urn:adsk.eagle:library:3048452" deviceset="TEST-POINT" device="3X5" package3d_urn="urn:adsk.eagle:package:3048905/1" value="TEST-POINT3X5"/>
@@ -25158,14 +25158,14 @@ Mode Select</text>
 <instance part="R4" gate="G$1" x="38.1" y="68.58" rot="R180"/>
 <instance part="C9" gate="G$1" x="53.34" y="68.58" rot="R90"/>
 <instance part="GND13" gate="1" x="7.62" y="30.48"/>
-<instance part="R7" gate="R?" x="53.34" y="55.88" smashed="yes" rot="MR0">
+<instance part="R7/SEN" gate="R?" x="53.34" y="55.88" smashed="yes" rot="MR0">
 <attribute name="NAME" x="53.594" y="57.15" size="1.778" layer="95"/>
 <attribute name="VALUE" x="52.578" y="57.15" size="1.778" layer="96" rot="MR0"/>
 </instance>
 <instance part="C11" gate="G$1" x="106.68" y="45.72"/>
 <instance part="SUPPLY4" gate="1" x="106.68" y="83.82"/>
 <instance part="GND14" gate="1" x="106.68" y="38.1"/>
-<instance part="R8" gate="R?" x="106.68" y="73.66" smashed="yes" rot="R90">
+<instance part="R8/OSC" gate="R?" x="106.68" y="73.66" smashed="yes" rot="R90">
 <attribute name="NAME" x="107.95" y="73.406" size="1.778" layer="95" rot="R270"/>
 <attribute name="VALUE" x="107.95" y="74.422" size="1.778" layer="96" rot="MR90"/>
 </instance>
@@ -25669,13 +25669,13 @@ Mode Select</text>
 <pinref part="SUPPLY1" gate="1" pin="VCC"/>
 </segment>
 <segment>
-<pinref part="R8" gate="R?" pin="WIPER"/>
+<pinref part="R8/OSC" gate="R?" pin="WIPER"/>
 <wire x1="101.6" y1="73.66" x2="99.06" y2="73.66" width="0.1524" layer="91"/>
 <wire x1="99.06" y1="73.66" x2="99.06" y2="81.28" width="0.1524" layer="91"/>
 <wire x1="99.06" y1="81.28" x2="106.68" y2="81.28" width="0.1524" layer="91"/>
 <pinref part="SUPPLY4" gate="1" pin="VCC"/>
 <wire x1="106.68" y1="81.28" x2="106.68" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="R8" gate="R?" pin="CW"/>
+<pinref part="R8/OSC" gate="R?" pin="CW"/>
 <wire x1="106.68" y1="78.74" x2="106.68" y2="81.28" width="0.1524" layer="91"/>
 <junction x="106.68" y="81.28"/>
 <pinref part="TP2" gate="G$1" pin="1"/>
@@ -25991,7 +25991,7 @@ Mode Select</text>
 <segment>
 <pinref part="U3" gate="G$1" pin="OP2_N"/>
 <wire x1="45.72" y1="53.34" x2="63.5" y2="53.34" width="0.1524" layer="91"/>
-<pinref part="R7" gate="R?" pin="WIPER"/>
+<pinref part="R7/SEN" gate="R?" pin="WIPER"/>
 <wire x1="53.34" y1="60.96" x2="53.34" y2="63.5" width="0.1524" layer="91"/>
 <wire x1="53.34" y1="63.5" x2="45.72" y2="63.5" width="0.1524" layer="91"/>
 <wire x1="45.72" y1="63.5" x2="45.72" y2="55.88" width="0.1524" layer="91"/>
@@ -26003,7 +26003,7 @@ Mode Select</text>
 <wire x1="45.72" y1="63.5" x2="45.72" y2="68.58" width="0.1524" layer="91"/>
 <junction x="45.72" y="63.5"/>
 <junction x="45.72" y="68.58"/>
-<pinref part="R7" gate="R?" pin="CW"/>
+<pinref part="R7/SEN" gate="R?" pin="CW"/>
 <wire x1="48.26" y1="55.88" x2="45.72" y2="55.88" width="0.1524" layer="91"/>
 <junction x="45.72" y="55.88"/>
 <pinref part="TP1" gate="G$1" pin="1"/>
@@ -26061,7 +26061,7 @@ Mode Select</text>
 <net name="N$13" class="0">
 <segment>
 <pinref part="R9" gate="G$1" pin="2"/>
-<pinref part="R8" gate="R?" pin="CCW"/>
+<pinref part="R8/OSC" gate="R?" pin="CCW"/>
 <wire x1="106.68" y1="66.04" x2="106.68" y2="68.58" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -26075,7 +26075,7 @@ Mode Select</text>
 <wire x1="60.96" y1="68.58" x2="63.5" y2="68.58" width="0.1524" layer="91"/>
 <junction x="60.96" y="68.58"/>
 <label x="63.5" y="68.58" size="1.27" layer="95" xref="yes"/>
-<pinref part="R7" gate="R?" pin="CCW"/>
+<pinref part="R7/SEN" gate="R?" pin="CCW"/>
 <wire x1="58.42" y1="55.88" x2="60.96" y2="55.88" width="0.1524" layer="91"/>
 <junction x="60.96" y="55.88"/>
 </segment>
