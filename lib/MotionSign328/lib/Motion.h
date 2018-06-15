@@ -23,6 +23,8 @@ class Motion{
 
     bool _isMotion;
     unsigned long lastTime;
+    unsigned long lastNudge;
+
     RangeU16 currRange;
     RangeU16 maxRange;
 };

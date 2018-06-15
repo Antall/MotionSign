@@ -14,10 +14,10 @@ void MotionTime::run(Sign &sign, Data &data){
   lastStep = currMillis;
 
   ColorHSV color;
+  uint8_t value = data.motion.avgMap(10, 0xFF);
   if(currMillis - data.motion.lastMotion() > TIME_OUT){
-    color = ColorHSV(HUE_GREEN, 0xFF, 0xFF);
+    color = ColorHSV(HUE_GREEN, 0xFF, value);
   }else{
-    uint8_t value = data.motion.avgMap(10, 0xFF);
     color = ColorHSV(HUE_RED, 0xFF, value);
   }
   sign.pushRight(color);

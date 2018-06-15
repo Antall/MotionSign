@@ -18,6 +18,11 @@ void Sign::setHSV(uint16_t h, uint8_t s, uint8_t v){
   this->setColor(color);
 }
 
+ColorHSV Sign::colorAt(uint8_t x){
+  Pixel* pixel = this->pixel(x,0);
+  return pixel->hsv;
+}
+
 void Sign::setColor(ColorHSV color){
   for(uint8_t i=0; i<LED_COUNT; i++){
     Pixel *pixel = this->pixel(i);
@@ -37,7 +42,7 @@ void Sign::pushRight(ColorHSV color){
     for(int8_t i=LED_WIDTH-2; i>=0; i--){
       Pixel* rightPixel = this->pixel(i+1,j);
       Pixel* leftPixel = this->pixel(i,j);
-      rightPixel->setFrom(leftPixel);
+      rightPixel->hsv = leftPixel->hsv;
     }
     Pixel* firstPixel = this->pixel(0,j);
     firstPixel->hsv = color;

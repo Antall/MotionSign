@@ -4,6 +4,7 @@
 Motion::Motion(){
    _isMotion = false;
    lastTime = 0;
+   lastNudge = 0;
 
    maxRange.max = 0;
    maxRange.min = 0xFFFF;
@@ -17,8 +18,11 @@ void Motion::resetCurrent(){
 }
 
 void Motion::nudgeMax(){
-  maxRange.max--;
-  maxRange.min++;
+  unsigned long currMillis = millis();
+  if(currMillis - lastNudge < (unsigned long)200){ return; }
+  lastNudge = currMillis;
+  if(maxRange.max > 2){maxRange.max--;}
+  if(maxRange.min < 1023){maxRange.min++;}
 }
 
 uint16_t Motion::currAvg(){
