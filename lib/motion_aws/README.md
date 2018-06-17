@@ -21,3 +21,27 @@ The API Gateway is already setup to talk to the MotionSign lambda.
 You need to set the *x-api-key: {api_key}* name/value pair in the headers.
 
 ## API Endpoints
+
+URL: https://tawd2jtko1.execute-api.us-east-1.amazonaws.com/prod/MotionSign
+
+#### DISPLAY
+* **Method:** GET
+*  **URL Params**
+  	* **Required:**
+   		`room_id=[integer]`
+   		`method_name=display`
+
+#### RESERVED
+* **Method:** GET
+*  **URL Params**
+  	* **Required:**
+   		`room_id=[integer]`
+   		`reserved=[integer] # values = 1 or 0`
+   	
+
+#### OCCUPIED
+* **Method:** POST
+*  **URL Params**
+  	* **Required:**
+   		`room_id=[integer]`
+   		`occupied=[integer] # values = 1 or 0`

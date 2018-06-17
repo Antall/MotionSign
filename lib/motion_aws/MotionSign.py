@@ -1,57 +1,114 @@
-
+import logging
 import boto3
 import json
+import time
+import os
 
-print('Loading function')
 dynamo = boto3.client('dynamodb')
 
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
+os.environ["TZ"]="US/Eastern"
+time.tzset()
 
-def respond(err, res=None):
-    return {
-        'statusCode': '400' if err else '200',
-        'body': err.message if err else json.dumps(res),
-        'headers': {
-            'Content-Type': 'application/json',
-        },
-    }
+
+
+def respond(msg=""):
+    return msg
 
 
 def __get_methods(dynamo, params):
-    room_id = params.get('room_id')
     method_name = params.get('method_name')
 
     methods = {
-        'reserved': lambda dynamo, room_id: __reserved(dynamo, room_id),
-        'display': lambda dynamo, room_id: __display(dynamo, room_id)
+        'reserved': lambda dynamo, params: __reserved(dynamo, params),
+        'display': lambda dynamo, params: __display(dynamo, params)
     }
 
-    if method_name in methods and room_id:
-        return respond(None, methods[method_name](dynamo, room_id))
-    else:
-        if room_id == None:
-            return respond(ValueError('Room ID is missing'))
-        else:
-            return respond(ValueError('Unsupported method "{}"'.format(method_name)))
+    if method_name not in methods:
+        method_name = 'reserved'
+
+    return respond(methods[method_name](dynamo, params))
+
+"""
+Method to display reservation details for the room
+
+- parse parameter list for room_id
+- parse parameter list for occupied flag
+- update occupied flag
+"""
+def __occupied(dynamo, params):
+    room_id = params['room_id']
+    occupied = int(params['occupied'])
+
+    dynamo.update_item(
+        TableName='MotionSign',
+        Key={
+            'room_id': {
+                'N': str(room_id)
+            }
+        },
+        UpdateExpression='SET occupied = :val1',
+        ExpressionAttributeValues={
+            ':val1': {
+                'N': str(occupied)
+            }
+        }
+    )
+    return "OCCUPIED" if occupied == 1 else "EMPTY"
 
 
-def __reserved(dynamo, room_id):
+
+"""
+Method to display reservation details for the room
+
+- parse parameter list for room_id
+- parse parameter list for reserved flag
+- update reserved flag
+"""
+def __reserved(dynamo, params):
+    room_id = params['room_id']
+    reserved = int(params['reserved'])
+
+    dynamo.update_item(
+        TableName='MotionSign',
+        Key={
+            'room_id': {
+                'N': str(room_id)
+            }
+        },
+        UpdateExpression='SET reserved = :val1',
+        ExpressionAttributeValues={
+            ':val1': {
+                'N': str(reserved)
+            }
+        }
+    )
+    return reserved
+
+"""
+Method to display reservation details for the room
+
+- parse parameter list for room_id
+- fetch room details
+"""
+def __display(dynamo, params):
+    room_id = params['room_id']
     room_entry = dynamo.get_item(
             TableName='MotionSign',
             Key={
                 'room_id': { 'N': room_id }
             })
-    print(room_entry)
-    return room_entry
-
-
-def __display(dynamo, room_id):
-    room_entry = dynamo.get_item(
-            TableName='MotionSign',
-            Key={
-                'room_id': { 'N': room_id }
-            })
-    print(room_entry)
-    return room_entry
+    return """
+DATA
+NOW: {}
+12345678901234567890
+NEXT: {}
+Ben's & Antall's su
+""".format(
+            time.strftime("%^a %l:%M:%S %p"),
+            time.strftime("%l:%M %p")
+        )
 
 
 def lambda_handler(event, context):
@@ -64,18 +121,17 @@ def lambda_handler(event, context):
     PUT, or DELETE request respectively, passing in the payload to the
     DynamoDB API as a JSON body.
     '''
-    #print("Received event: " + json.dumps(event, indent=2))
+    # print("Received event: " + json.dumps(event, indent=2))
 
     operations = {
-        'DELETE': lambda dynamo, x: dynamo.delete_item(**x),
         'GET': lambda dynamo, x: __get_methods(dynamo, x),
-        'POST': lambda dynamo, x: dynamo.put_item(**x),
-        'PUT': lambda dynamo, x: dynamo.update_item(**x),
+        'POST': lambda dynamo, x: respond(__occupied(dynamo, x))
     }
 
-    operation = event['httpMethod']
+    operation = event['context']['http-method']
+    payload = event['params']['querystring']
+
     if operation in operations:
-        payload = event['queryStringParameters'] if operation == 'GET' else json.loads(event['body'])
         return operations[operation](dynamo, payload)
     else:
         return respond(ValueError('Unsupported method "{}"'.format(operation)))
