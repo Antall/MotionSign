@@ -1,7 +1,7 @@
 #include "Internet.h"
 #include "env.h"
 
-const unsigned long UPDATE_TIME = (unsigned long)5*1000;
+const unsigned long UPDATE_TIME = (unsigned long)60*1000;
 
 const int ROOM_NUMBER = 1;
 
@@ -58,7 +58,6 @@ void Internet::run(Data &data){
 
   switch(currRequest){
     case GET_RESERVED: this->getReserved(data, client); break;
-    case POST_OCCUPIED: this->postOccupied(data, client); break;
     case GET_DISPLAY: this->getDisplay(data,client); break;
   }
   currRequest = (currRequest+1) % REQUEST_COUNT;
@@ -143,27 +142,34 @@ void Internet::getDisplay(Data &data, WiFiClient &client){
 
 void Internet::getReserved(Data &data, WiFiClient &client){
 
+  String occupied;
+  if(data.isOccupied){
+    occupied = "1";
+  }else{
+    occupied = "0";
+  }
+
 #ifdef DEBUG_PRINT
   Serial.print("connecting to ");
   Serial.println(HOST);
 #endif
 
   // We now create a URI for the request
-  String url = "GET /prod/MotionSign?room_id=" + String(ROOM_NUMBER) + "&amp;reserved=1";
+  String request = "GET /prod/MotionSign?room_id=" + String(ROOM_NUMBER) + "&amp;occupied=" + occupied +
+    " HTTP/1.1\r\n" +
+    "Host: " + HOST + "\r\n" +
+    "x-api-key: " + API_KEY + "\r\n" +
+    "Content-Type: application/json\r\n" +
+    "Cache-Control: no-cache\r\n" +
+    "Connection: close\r\n\r\n";
 
 #ifdef DEBUG_PRINT
-  Serial.print("Requesting URL: ");
-  Serial.println(url);
+  Serial.print("REQUEST: ");
+  Serial.println(request);
 #endif
 
   // This will send the request to the server
-  client.print(url + " HTTP/1.1\r\n" +
-      "Host: " + HOST + "\r\n" +
-      "x-api-key: " + API_KEY + "\r\n" +
-      "Content-Type: application/json\r\n" +
-      "Cache-Control: no-cache\r\n" +
-      "Connection: close\r\n\r\n"
-      );
+  client.print(request);
   delay(200);
 
   // Read all the lines of the reply from server and print them to Serial
@@ -175,47 +181,6 @@ void Internet::getReserved(Data &data, WiFiClient &client){
 #endif
   }
   data.isReserved = (line.toInt() == 1);
-}
-
-void Internet::postOccupied(Data &data, WiFiClient &client){
-
-  String post;
-  if(data.isOccupied){
-    post = "1";
-  }else{
-    post = "0";
-  }
-
-#ifdef DEBUG_PRINT
-  Serial.print("connecting to ");
-  Serial.println(HOST);
-#endif
-
-  String url = "/prod/MotionSign?room_id=" + String(ROOM_NUMBER) + "&occupied=" + post;
-
-#ifdef DEBUG_PRINT
-  Serial.print("Requesting URL: ");
-  Serial.println(url);
-#endif
-
-  client.print(String("POST ") + url + " HTTP/1.1\r\n" + "Host: " + HOST + "\r\n" +
-      "Cache-Control: no-cache\r\n" +
-      "x-api-key: " + API_KEY + "\r\n" +
-      "Content-Type: application/json\r\n" +
-      "Content-Length: " + post.length() + "\r\n" +
-      "Connection: close\r\n\r\n"
-      );
-  client.println(post);
-
-  delay(200);
-
-  String line;
-  while(client.available()){
-    line = client.readStringUntil('\r');
-#ifdef DEBUG_PRINT
-    Serial.println(line);
-#endif
-  }
 
 
 }

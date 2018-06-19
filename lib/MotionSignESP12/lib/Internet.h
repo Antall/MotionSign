@@ -7,7 +7,6 @@
 
 typedef const enum _REQUESTS {
   GET_RESERVED = 0,
-  POST_OCCUPIED,
   GET_DISPLAY,
   REQUEST_COUNT
 } REQUESTS;
@@ -20,7 +19,6 @@ class Internet {
   private:
     uint8_t currRequest;
     void getReserved(Data &data, WiFiClient &client);
-    void postOccupied(Data &data, WiFiClient &client);
     void getDisplay(Data &data, WiFiClient &client);
     unsigned long lastRun;
 };
