@@ -68,7 +68,7 @@ Method to display reservation details for the room
 """
 def __reserved(dynamo, params):
     room_id = params['room_id']
-    reserved = int(params['reserved'])
+    occupied = int(params['occupied'])
 
     dynamo.update_item(
         TableName='MotionSign',
@@ -77,13 +77,14 @@ def __reserved(dynamo, params):
                 'N': str(room_id)
             }
         },
-        UpdateExpression='SET reserved = :val1',
+        UpdateExpression='SET occupied = :val1',
         ExpressionAttributeValues={
             ':val1': {
-                'N': str(reserved)
+                'N': str(occupied)
             }
         }
     )
+    reserved = 1 - occupied
     return reserved
 
 """
