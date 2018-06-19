@@ -3,7 +3,7 @@
 
 const unsigned long UPDATE_TIME = (unsigned long)5*1000;
 
-const int ROOM_NUMBER = 2;
+const int ROOM_NUMBER = 1;
 
 void Internet::init(){
   lastRun = 0;
@@ -48,7 +48,7 @@ void Internet::run(Data &data){
   if(currMillis - lastRun < UPDATE_TIME){ return; }
   lastRun = currMillis;
 
-  WiFiClient client;
+  WiFiClientSecure client;
   if (!client.connect(HOST, PORT)) {
 #ifdef DEBUG_PRINT
     Serial.println("connection failed");
@@ -66,32 +66,78 @@ void Internet::run(Data &data){
 }
 
 void Internet::getDisplay(Data &data, WiFiClient &client){
-  String url = "/display/" + String(ROOM_NUMBER);
+
+#ifdef DEBUG_PRINT
+  Serial.print("connecting to ");
+  Serial.println(HOST);
+#endif
+
+  String url = "/prod/MotionSign?room_id=" + String(ROOM_NUMBER) + "&method_name=display";
+
+#ifdef DEBUG_PRINT
+  Serial.print("Requesting URL: ");
+  Serial.println(url);
+#endif
 
   // This will send the request to the server
   client.print(String("GET ") + url +
-      " HTTP/1.1\r\n" + "Host: " +
-      HOST + "\r\n" +
+      " HTTP/1.1\r\n" + "Host: " + HOST + "\r\n" +
+      "Content-Type: application/json\r\n" +
+      "x-api-key: " + API_KEY + "\r\n" +
       "Connection: close\r\n\r\n"
       );
   delay(200);
 
   // Read all the lines of the reply until we get to "DATA"
   String line;
+  bool found = false;
   while(client.available()){
     line = client.readStringUntil('\n');
     line.trim();
+#ifdef DEBUG_PRINT
+    Serial.println(line);
+#endif
     if(line == String("DATA")){
+      found = true;
       break;
     }
   }
 
   // Then send everything to data
   data.wipeScreen();
-  while(client.available()){
-    char incomingByte = client.read();
-    data.storeChar(incomingByte);
+
+  if(found){
+    while(client.available()){
+      char incomingByte = client.read();
+#ifdef DEBUG_PRINT
+      Serial.print(incomingByte);
+#endif
+      data.storeChar(incomingByte);
+    }
+  }else{ // User last line
+    uint16_t length = line.length();
+    char lastByte = ' ';
+    char byte = ' ';
+
+    for(int i=0; i<length; i++){
+      lastByte = byte;
+      byte = line.charAt(i);
+      if(byte == '"'){
+        continue;
+      }else if(lastByte == '\\' && byte == 'n'){
+        data.storeChar('\n');
+      }else if(byte != '\\'){
+        data.storeChar(byte);
+      }
+#ifdef DEBUG_PRINT
+      Serial.print(byte);
+#endif
+    }
   }
+
+#ifdef DEBUG_PRINT
+  Serial.println();
+#endif
 
 }
 
@@ -103,16 +149,19 @@ void Internet::getReserved(Data &data, WiFiClient &client){
 #endif
 
   // We now create a URI for the request
-  String url = "/reserved/" + String(ROOM_NUMBER);
+  String url = "GET /prod/MotionSign?room_id=" + String(ROOM_NUMBER) + "&amp;reserved=1";
+
 #ifdef DEBUG_PRINT
   Serial.print("Requesting URL: ");
   Serial.println(url);
 #endif
 
   // This will send the request to the server
-  client.print(String("GET ") + url +
-      " HTTP/1.1\r\n" + "Host: " +
-      HOST + "\r\n" +
+  client.print(url + " HTTP/1.1\r\n" +
+      "Host: " + HOST + "\r\n" +
+      "x-api-key: " + API_KEY + "\r\n" +
+      "Content-Type: application/json\r\n" +
+      "Cache-Control: no-cache\r\n" +
       "Connection: close\r\n\r\n"
       );
   delay(200);
@@ -121,6 +170,9 @@ void Internet::getReserved(Data &data, WiFiClient &client){
   String line;
   while(client.available()){
     line = client.readStringUntil('\r');
+#ifdef DEBUG_PRINT
+    Serial.println(line);
+#endif
   }
   data.isReserved = (line.toInt() == 1);
 }
@@ -134,10 +186,21 @@ void Internet::postOccupied(Data &data, WiFiClient &client){
     post = "0";
   }
 
-  String url = "/occupied/" + String(ROOM_NUMBER);
+#ifdef DEBUG_PRINT
+  Serial.print("connecting to ");
+  Serial.println(HOST);
+#endif
+
+  String url = "/prod/MotionSign?room_id=" + String(ROOM_NUMBER) + "&occupied=" + post;
+
+#ifdef DEBUG_PRINT
+  Serial.print("Requesting URL: ");
+  Serial.println(url);
+#endif
 
   client.print(String("POST ") + url + " HTTP/1.1\r\n" + "Host: " + HOST + "\r\n" +
       "Cache-Control: no-cache\r\n" +
+      "x-api-key: " + API_KEY + "\r\n" +
       "Content-Type: application/json\r\n" +
       "Content-Length: " + post.length() + "\r\n" +
       "Connection: close\r\n\r\n"
@@ -149,6 +212,9 @@ void Internet::postOccupied(Data &data, WiFiClient &client){
   String line;
   while(client.available()){
     line = client.readStringUntil('\r');
+#ifdef DEBUG_PRINT
+    Serial.println(line);
+#endif
   }
 
 

@@ -3,6 +3,7 @@
 
 #include "Data.h"
 #include <ESP8266WiFi.h>
+#include <WifiClientSecure.h>
 
 typedef const enum _REQUESTS {
   GET_RESERVED = 0,
