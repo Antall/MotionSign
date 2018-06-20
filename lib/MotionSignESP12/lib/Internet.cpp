@@ -39,6 +39,8 @@ void Internet::init(){
   Serial.println(WiFi.subnetMask());
   Serial.print("Gateway: ");
   Serial.println(WiFi.gatewayIP());
+  Serial.print("MAC: ");
+  Serial.println(WiFi.macAddress());
 #endif
 
 }
