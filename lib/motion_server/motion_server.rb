@@ -8,17 +8,12 @@ get '/' do
   'Hello World'
 end
 
-get '/reserved/:room' do
-  room = params[:room]
-  reserved = true
+get '/prod/MotionSign' do
+  room = params[:room_id]
+  reserved = params[:occupied]
   puts "IS #{room} RESERVED? => #{reserved}"
-  rtn = reserved ? "1" : "0"
-  rtn
-end
 
-get '/display/:room' do
-  room = params[:room]
-#--------1---------2---------3---------4
+  if params[:method_name] == "display"
 rtn = <<-RESPONSE
 DATA
 NOW: #{Time.now.strftime("%^a %l:%M:%S %p")}
@@ -26,12 +21,8 @@ NOW: #{Time.now.strftime("%^a %l:%M:%S %p")}
 NEXT:       #{Time.now.strftime("%l:%M %p")}
 Ben's & Antall's su
 RESPONSE
-rtn.strip
-end
+    return rtn.strip
+  end
 
-post '/occupied/:room' do
-  occupied = ( request.body.read&.to_i == 1)
-  str = occupied ? "OCCUPIED" : "EMPTY"
-  puts str
-  str
+  reserved
 end
