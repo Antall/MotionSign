@@ -1,0 +1,19 @@
+AWSTemplateFormatVersion : '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+Description: |
+  An example RESTful service
+Resources:
+  MotionSign:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: python3.6
+      Timeout: 30
+      Handler: MotionSign.lambda_handler
+      CodeUri: ../build/MotionSign.zip
+      Events:
+        GetCellId:
+          Type: Api
+          Properties:
+            Path: /MotionSign
+            Method: get

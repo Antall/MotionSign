@@ -51,3 +51,5 @@ eagle.epf
 *.info
 
 *.eps
+
+lib/motion_aws/env
