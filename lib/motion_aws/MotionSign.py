@@ -9,7 +9,6 @@ from apiclient import discovery
 import oauth2client
 from oauth2client import client
 from oauth2client import tools
-from oauth2client.client import GoogleCredentials
 import pytz
 import datetime
 import shutil
@@ -134,7 +133,7 @@ def __display(dynamo, params):
 
     credentials = get_credentials()
     http = credentials.authorize(httplib2.Http())
-    service = discovery.build('calendar', 'v3', http=http)
+    service = discovery.build('calendar', 'v3', http=http, cache_discovery=False)
 
     now = datetime.datetime.utcnow().isoformat() + 'Z' # 'Z' indicates UTC time
     eventsResult = service.events().list(
