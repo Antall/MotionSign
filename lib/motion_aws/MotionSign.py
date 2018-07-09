@@ -158,14 +158,23 @@ def __build_event_str(event):
     event_summary = event['summary'][:20]
 
     if event_start < current_datetime < event_end:
-        return """NOW: {}\n{}""".format(current_datetime.strftime("%^a %l:%M:%S %p"),event_summary)
+        return """
+NOW: {}
+{}""".format(current_datetime.strftime("%^a %l:%M:%S %p"),event_summary)
     else:
-        return """NEXT: {}\n{}""".format(event_start.strftime("%^a %l:%M:%S %p"), event_summary)
+        return """
+NEXT: {}
+{}""".format(event_start.strftime("%^a %l:%M:%S %p"), event_summary)
 
 
 def __build_str(events):
     event_strings = [__build_event_str(event) for event in events]
-    return """DATA\n{}""".format('\n'.join(event_strings))
+
+    return """
+DATA{}
+""".format(''.join(event_strings))
+
+
 
 
 def lambda_handler(event, context):
