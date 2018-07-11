@@ -163,8 +163,8 @@ NOW: {}
 {}""".format(current_datetime.strftime("%^a %l:%M:%S %p"),event_summary)
     else:
         return """
-NEXT: {}
-{}""".format(event_start.strftime("%^a %l:%M:%S %p"), event_summary)
+NEXT:   {}
+{}""".format(event_start.strftime("%^a %l:%M %p"), event_summary)
 
 
 def __build_str(events):
