@@ -7,10 +7,13 @@ To deploy the lambda run the following command from the projects root directory.
 $ cd lib/motion_aws/
 
 # zip the python file first
-$ zip -r MotionSign.zip MotionSign.py
+$ bash deploy.sh
 
 # upload the zipped file to the lambda function
 $ aws lambda update-function-code --function-name MotionSign --zip-file fileb://MotionSign.zip
+
+# Using SAM
+$ sam local invoke "MotionSign" -e event.json
 ```
 
 ## API Gateway
@@ -27,21 +30,21 @@ URL: https://tawd2jtko1.execute-api.us-east-1.amazonaws.com/prod/MotionSign
 #### DISPLAY
 * **Method:** GET
 *  **URL Params**
-  	* **Required:**
-   		`room_id=[integer]`
-   		`method_name=display`
+    * **Required:**
+      `room_id=[integer]`
+      `method_name=display`
 
 #### RESERVED
 * **Method:** GET
 *  **URL Params**
-  	* **Required:**
-   		`room_id=[integer]`
-   		`reserved=[integer] # values = 1 or 0`
-   	
+    * **Required:**
+      `room_id=[integer]`
+      `reserved=[integer] # values = 1 or 0`
+
 
 #### OCCUPIED
 * **Method:** POST
 *  **URL Params**
-  	* **Required:**
-   		`room_id=[integer]`
-   		`occupied=[integer] # values = 1 or 0`
+    * **Required:**
+      `room_id=[integer]`
+      `occupied=[integer] # values = 1 or 0`
