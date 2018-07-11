@@ -27,6 +27,7 @@ $ cd lib/motion_aws/
 $ bash deploy.sh
 
 # upload the zipped file to the lambda function
+$ cd lib/motion_aws/build/
 $ aws lambda update-function-code --function-name MotionSign --zip-file fileb://MotionSign.zip
 
 # Using SAM
