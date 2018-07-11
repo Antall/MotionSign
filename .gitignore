@@ -53,3 +53,5 @@ eagle.epf
 *.eps
 
 lib/motion_aws/env
+lib/motion_aws/client_secret.json
+lib/motion_aws/credentials.json

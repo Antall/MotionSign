@@ -1,12 +1,29 @@
 #MotionSign
 
+## Setup
+
+To setup the codebase you need to set a python virtual environment, activate it and load the necessary packages.
+
+```bash
+$ cd lib/motion_aws/
+$ virtualenv env --python=python3
+$ source env/bin/activate
+$ pip install -r requirements.txt
+```
+
 ## Lambda
 To deploy the lambda run the following command from the projects root directory.
+
+You also need to ensure you have the following google API credential files in the motion_aws directory:
+
+* client_secret.json
+* credentials.json
 
 ```bash
 $ cd lib/motion_aws/
 
 # zip the python file first
+# ensure you have activated your python environment
 $ bash deploy.sh
 
 # upload the zipped file to the lambda function
