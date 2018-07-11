@@ -66,6 +66,15 @@ void Internet::run(Data &data){
 
 }
 
+void Internet::waitForData(WiFiClient &client){
+  uint16_t totalDelay = 0;
+  uint16_t delayStep = 200;
+  while(totalDelay < 8000 && !client.available() ){
+    delay(delayStep);
+    totalDelay += delayStep;
+  }
+}
+
 void Internet::getDisplay(Data &data, WiFiClient &client){
 
 #ifdef DEBUG_PRINT
@@ -87,11 +96,13 @@ void Internet::getDisplay(Data &data, WiFiClient &client){
       "x-api-key: " + API_KEY + "\r\n" +
       "Connection: close\r\n\r\n"
       );
-  delay(200);
+
+  this->waitForData(client);
 
   // Read all the lines of the reply until we get to "DATA"
   String line;
   bool found = false;
+
   while(client.available()){
     line = client.readStringUntil('\n');
     line.trim();
@@ -172,7 +183,7 @@ void Internet::getReserved(Data &data, WiFiClient &client){
 
   // This will send the request to the server
   client.print(request);
-  delay(200);
+  this->waitForData(client);
 
   // Read all the lines of the reply from server and print them to Serial
   String line;

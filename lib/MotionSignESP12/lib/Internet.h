@@ -20,6 +20,7 @@ class Internet {
     uint8_t currRequest;
     void getReserved(Data &data, WiFiClient &client);
     void getDisplay(Data &data, WiFiClient &client);
+    void waitForData(WiFiClient &client);
     unsigned long lastRun;
 };
 #endif
