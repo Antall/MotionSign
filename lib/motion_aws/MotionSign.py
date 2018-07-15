@@ -75,20 +75,6 @@ def __fetch_google_events(room_id, num_events = 2):
     return eventsResult.get('items', [])
 
 
-
-def __get_methods(dynamo, params):
-    method_name = params.get('method_name')
-
-    methods = {
-        'reserved': lambda dynamo, params: __reserved(dynamo, params),
-        'display': lambda dynamo, params: __display(dynamo, params)
-    }
-
-    if method_name not in methods:
-        method_name = 'reserved'
-
-    return respond(methods[method_name](dynamo, params))
-
 """
 Method to display reservation details for the room
 
@@ -117,43 +103,18 @@ def __occupied(dynamo, params):
     return "OCCUPIED" if occupied == 1 else "EMPTY"
 
 
-
 """
-Method to display reservation details for the room
+Method to find if room is reserved or not
 
 - parse parameter list for room_id
-- parse parameter list for reserved flag
-- update reserved flag
 """
 def __reserved(dynamo, params):
     room_id = params['room_id']
-    old_reserved_value = int(params['reserved']) if 'reserved' in params else 0
-
     events = __fetch_google_events(room_id, num_events = 1)
 
     any_ongoing_events = any([__is_event_ongoing(event) for event in events])
-    if any_ongoing_events:
-        new_reserved_value = 1
-    else:
-        new_reserved_value = 0
-
-
-    if new_reserved_value != old_reserved_value:
-        dynamo.update_item(
-                TableName='MotionSign',
-                Key={
-                    'room_id': {
-                        'N': str(room_id)
-                        }
-                    },
-                UpdateExpression='SET reserved = :val1',
-                ExpressionAttributeValues={
-                    ':val1': {
-                        'N': str(new_reserved_value)
-                        }
-                    }
-                )
-    return new_reserved_value
+    reserved = 1 if any_ongoing_events else 0
+    return reserved
 
 def __is_event_ongoing(event):
     start = event['start'].get('dateTime', event['start'].get('date'))
@@ -174,7 +135,11 @@ Method to display reservation details for the room
 def __display(dynamo, params):
     room_id = params['room_id']
     events = __fetch_google_events(room_id)
-    return __build_str(events)
+    event_strings = [__build_event_str(event) for event in events]
+
+    return """
+DATA{}
+""".format(''.join(event_strings))
 
 def __build_event_str(event):
     start = event['start'].get('dateTime', event['start'].get('date'))
@@ -184,7 +149,7 @@ def __build_event_str(event):
     event_end = iso8601.parse_date(end).astimezone(eastern)
     current_datetime = datetime.datetime.now(eastern)
 
-    event_summary = event['summary'][:20]
+    event_summary = event['summary'][:20] if 'summary' in event else "Reserved"
 
     if event_start < current_datetime < event_end:
         return """
@@ -195,15 +160,18 @@ NOW: {}
 NEXT:   {}
 {}""".format(event_start.strftime("%^a %l:%M %p"), event_summary)
 
+def __get_methods(dynamo, params):
+    method_name = params.get('method_name')
 
-def __build_str(events):
-    event_strings = [__build_event_str(event) for event in events]
+    methods = {
+        'reserved': lambda dynamo, params: __reserved(dynamo, params),
+        'display': lambda dynamo, params: __display(dynamo, params)
+    }
 
-    return """
-DATA{}
-""".format(''.join(event_strings))
+    if method_name not in methods:
+        method_name = 'reserved'
 
-
+    return respond(methods[method_name](dynamo, params))
 
 
 def lambda_handler(event, context):
