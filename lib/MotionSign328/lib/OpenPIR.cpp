@@ -19,8 +19,8 @@ void OpenPIR::init(){
 
 void OpenPIR::run(Data &data){
   data.motion.nudgeMax();
-  this->getDigital(data);
   this->getAnalog(data);
+  this->getDigital(data);
 }
 
 void OpenPIR::getAnalog(Data &data){

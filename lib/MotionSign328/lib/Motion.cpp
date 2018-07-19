@@ -9,6 +9,11 @@ Motion::Motion(){
    maxRange.max = 0;
    maxRange.min = 0xFFFF;
 
+   quietRange.max = 495;
+   quietRange.min = 370;
+
+   lastAnalog = 420;
+
    this->resetCurrent();
 }
 
@@ -21,12 +26,12 @@ void Motion::nudgeMax(){
   unsigned long currMillis = millis();
   if(currMillis - lastNudge < (unsigned long)200){ return; }
   lastNudge = currMillis;
-  if(maxRange.max > 2){maxRange.max--;}
-  if(maxRange.min < 1023){maxRange.min++;}
+  if(maxRange.max > quietRange.max){maxRange.max--;}
+  if(maxRange.min < quietRange.min){maxRange.min++;}
 }
 
 uint16_t Motion::currAvg(){
-  return (currRange.max >> 1) + (currRange.min >> 1);
+  return (currRange.max + currRange.min) >> 1;
 }
 
 uint8_t Motion::avgMap(uint8_t low, uint8_t high){
@@ -34,14 +39,25 @@ uint8_t Motion::avgMap(uint8_t low, uint8_t high){
 }
 
 uint16_t Motion::avgMapU16(uint16_t low, uint16_t high){
+
 #ifdef PRINT_MOTION
   Serial.print(maxRange.max);
   Serial.print(" ");
   Serial.print(maxRange.min);
   Serial.print(" ");
+  Serial.print(currRange.max);
+  Serial.print(" ");
+  Serial.print(currRange.min);
+  Serial.print(" ");
   Serial.print(this->currAvg());
+  Serial.print(" ");
+  Serial.print(quietRange.max);
+  Serial.print(" ");
+  Serial.print(quietRange.min);
+
   Serial.print("\n");
 #endif
+
   return map(this->currAvg(), maxRange.min, maxRange.max, low, high);
 }
 
@@ -52,8 +68,8 @@ void Motion::setRangeWithValue(RangeU16 &range, uint16_t value){
   if(value < range.min){
     range.min = value;
   }
-  if(range.max > 1023 ){
-    range.max = 0;
+  if(range.max > ANALOG_MAX ){
+    range.max = ANALOG_MAX;
   }
 }
 
@@ -62,6 +78,7 @@ unsigned long Motion::lastMotion(){
 }
 
 void Motion::setAnalog(uint16_t newValue){
+  lastAnalog = min(newValue, ANALOG_MAX);
 
   this->setRangeWithValue(currRange, newValue);
   this->setRangeWithValue(maxRange, newValue);
@@ -71,13 +88,17 @@ void Motion::setAnalog(uint16_t newValue){
 void Motion::setDigital(bool newValue){
   _isMotion = newValue;
 
-  if (newValue == HIGH){
+  if(lastAnalog > quietRange.max || lastAnalog < quietRange.min ){
+    _isMotion = true;
+  }
+
+  if(_isMotion){
     lastTime = millis();
   }
 }
 
 bool Motion::isMotion(){
-  return _isMotion;
+  return (millis() - lastTime) < IS_MOTION_TIME;
 }
 
 bool Motion::isTimeOut(){

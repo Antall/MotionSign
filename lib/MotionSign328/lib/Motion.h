@@ -24,7 +24,9 @@ class Motion{
     bool _isMotion;
     unsigned long lastTime;
     unsigned long lastNudge;
+    uint16_t lastAnalog;
 
+    RangeU16 quietRange;
     RangeU16 currRange;
     RangeU16 maxRange;
 };

@@ -34,7 +34,19 @@ void Effects::run(Data &data){
 
 void Effects::updateStrip(Data &data){
   // Set Indicator at begining of string
-  uint32_t color = ColorFromHSV(data.indicatorColor);
+
+  uint32_t color;
+
+  if(data.potValue > 10){ // SHOW POT COLOR
+    color = ColorFromHSV(data.indicatorColor);
+  }else{ // ELSE SHOW IF THIER IS MOTION
+    if(data.motion.isMotion()){
+      color = 0xFF;
+    }else{
+      color = 0xFF0000;
+    }
+  }
+
   for(uint8_t idx = 0; idx<INDICATOR_COUNT; idx++){
     strip.setPixelColor(idx, color);
   }
