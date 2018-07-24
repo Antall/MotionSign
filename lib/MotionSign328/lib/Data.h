@@ -17,7 +17,7 @@ const uint16_t HUE_RED = (0/360) << 8;
 const uint16_t HUE_BLUE = ((uint32_t)240*0xFF/360) << 8;
 
 const unsigned long TIME_OUT = (unsigned long)60*3*1000;
-const unsigned long IS_MOTION_TIME = (unsigned long)30*1000;
+const unsigned long IS_MOTION_TIME = (unsigned long)20*1000;
 
 struct Data{
   Motion motion;

@@ -9,8 +9,8 @@ Motion::Motion(){
    maxRange.max = 0;
    maxRange.min = 0xFFFF;
 
-   quietRange.max = 495;
-   quietRange.min = 370;
+   quietRange.max = 515;
+   quietRange.min = 360;
 
    lastAnalog = 420;
 

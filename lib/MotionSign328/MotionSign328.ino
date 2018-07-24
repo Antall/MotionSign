@@ -14,6 +14,7 @@
 #include <MotionSign328.h>
 MotionSign328 motionSign;
 
+//#define DEBUG
 #undef DEBUG
 
 void setup(){
