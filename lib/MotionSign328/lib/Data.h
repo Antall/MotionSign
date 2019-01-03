@@ -24,5 +24,6 @@ struct Data{
   uint16_t potValue;
   bool isReserved;
   ColorHSV indicatorColor;
+  bool isDoorOpen;
 };
 #endif

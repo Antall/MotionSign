@@ -7,6 +7,9 @@
 #include "Internet.h"
 #include "Pot.h"
 #include "Indicator.h"
+#include "Switch.h"
+
+#define DOOR_SWITCH_PIN 3
 
 class MotionSign328{
   public:
@@ -15,6 +18,8 @@ class MotionSign328{
     void run();
 
   private:
+
+    Switch doorSwitch;
     OpenPIR openPIR;
     Effects effects;
     Data data;

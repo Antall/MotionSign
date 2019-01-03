@@ -36,6 +36,7 @@ eagle.epf
 *.sts
 *.crc
 *.crs
+*.job
 
 *.dri
 *.drl

@@ -5,6 +5,7 @@ MotionSign328::MotionSign328(){
 };
 
 void MotionSign328::init(){
+  doorSwitch.init(DOOR_SWITCH_PIN);
   openPIR.init();
   effects.init();
   internet.init();
@@ -15,6 +16,7 @@ void MotionSign328::init(){
 void MotionSign328::run(){
 
   openPIR.run(data);
+  data.isDoorOpen = doorSwitch.value();
   internet.run(data);
   pot.run(data);
   indicator.run(data);
